@@ -150,28 +150,28 @@ CREATE TABLE livraison_inclut(
 
 INSERT INTO categorie (`categ_libelle`, `categ_photo`, `sous_categ_id`)
 VALUES
-  ("PC FIXE", "pcfixe.jpg", 1),
-  ("PC PORTABLE", "pcportable.jpg", 2),
-  ("COMPOSANTS", "composants.jpg", 3),
-  ("GAMING ZONE", "c&p.jpg", 4),
+  ("PC FIXE", "pcfixe.png", 1),
+  ("PC PORTABLE", "pcportable.png", 2),
+  ("COMPOSANTS", "composants.png", 3),
+  ("GAMING ZONE", "gamingzone.jpg", 4),
   ("COMPOSANTS PC", "Microphones.jpg", 5),
   
-  ("Ordinateur Maxotek", "ordmaxotek.jpg", 1),
-  ("Ordinateur Bureautique", "ordibureau.jpg", 1),
+  ("Ordinateur Maxotek", "ordmaxotek.jpeg", 1),
+  ("Ordinateur Bureautique", "ordibureau.png", 1),
   ("Ordinateur Gamer", "ordigamer.jpg", 1),
-  ("Portable Bureautique", "portbureau.jpg", 2),
-  ("Portable Multimédia", "portmulti.jpg", 2),
-  ("Portable Gamer", "portgamer.jpg", 2),
-  ("Carte mère", "cartemere.jpg", 3),
-  ("Processeur", "processeur.jpg", 3),
-  ("Carte Graphique", "cartegraph.jpg", 3),
-  ("Siège PC Gamer", "siegegamer.jpg", 4),
-  ("Clavier Gamer", "clavgamer.jpg", 4),
-  ("Souris Gamer" ,"sourisgamer.jpg", 4),
-  ("Ecrans PC", "ecranpc.jpg", 5),
-  ("Clavier PC" , "clavpc.jpg", 5),
-  ("Souris PC", "sourispc.jpg", 5),
-  ("Casque PC", "casquepc.jpg", 5);
+  ("Portable Bureautique", "portbureau.png", 2),
+  ("Portable Multimédia", "portmulti.png", 2),
+  ("Portable Gamer", "portgamer.png", 2),
+  ("Carte mère", "cartemere.png", 3),
+  ("Processeur", "processeur.jpeg", 3),
+  ("Carte Graphique", "cartegraph.png", 3),
+  ("Siège PC Gamer", "siegegamer.png", 4),
+  ("Clavier Gamer", "clavgamer.png", 4),
+  ("Souris Gamer" ,"sourisgamer.png", 4),
+  ("Ecrans PC", "ecranpc.png", 5),
+  ("Clavier PC" , "clavpc.png", 5),
+  ("Souris PC", "sourispc.png", 5),
+  ("Casque PC", "casquepc.png", 5);
 
 
 INSERT INTO adresse (`adresse`,`adresse_ville`,`adresse_cp`)
@@ -287,81 +287,81 @@ VALUES
   "Boîtier PC MSI MPG GUNGNIR 110R - Processeur Intel Core i5-13600KF - Carte mère Asus PRIME B660-PLUS D4 - Mémoire Kingston 16 Go - Disque SSD WD 1To BLUE SN570 M.2 NVMe - 
    Watercooling Azza GaleForce 240 ARGB - Carte Graphique RTX 4070 Ti - Alimentation M.RED ATX 850W - 80+GOLD - F.Mod/RGB - Carte réseau Asus PCE-AX3000 - Sans systeme d'exploitation
    ",
-   409,736,"produit1.jpg",45,b'1',6,5
+   409,736,"produit1.png",45,b'1',6,5
   ),
   ("MAXOTEK BILLSPIRIT EVO",
   "Boitier PC M.RED Crystal Sea Noir - Processeur Intel Processeur Core i7-13700KF - Carte mère Asus PRIME Z790-P WIFI D4 - Mémoire PC Kingston 16Go - Disque SSD Crucial 2To M.2 NVMe - 
    Watercooling Azza Galeforce 360 ARGB - Carte Graphique RTX 4070 Ti 12Go - Alimentation A1000G Gen 5 - Sans systeme d'exploitation
   ",
-  585,1254,"produit2.jpg",45,b'1',6,2
+  585,1254,"produit2.png",45,b'1',6,2
   ),
   ("MAXOTEK EDUC PREMIUM",
   "Boîtier PC Antec VSK 10 - Processeur INTEL Core i5-12400 - Carte mère MSI PRO B660M-A WIFI DDR4 - Mémoire PC 16Go - Disque SSD P3 M.2 NVMe - 
    Alimentation DUST ATX 500W - (Ventilateur 12cm) - Windows 11 Home
   ",
-  222,1357,"produit3.jpg",76,b'1',6,1
+  222,1357,"produit3.png",76,b'1',6,1
   ),
   ("MAXOTEK BILLGAMER",
   "Boitier PC M.RED ELITE BLACK Rainbow ARGB MR-006 - Processeur Ryzen 7 5800X3D - Carte mère Asus TUF GAMING B550-PLUS - Mémoire PC 16Go - Watercooling AIO 240mm RGB Rainbow - 
    Disque SSD 1To BLUE SN570 M.2 NVMe - Carte Graphique RX 7900 XT 20G - Alimentation ATX 850W 80+ Gold - Sans système d'exploitation
   ",
-  577,1341,"produit4.jpg",20,b'1',6,1
+  577,1341,"produit4.png",20,b'1',6,1
   ),
 
   ("PC BUREAUTIQUE MAXOTEK EDUC",
   "Boîtier PC : Antec P7 Silent - Processeur : Intel Core i7-12700 - Carte mère : MSI PRO B660M-A WIFI DDR4 - Mémoire : Crucial DDR4 3200 - 32Go 4x8Go - Disque SSD : Crucial P3 M.2 NVMe - 500Go - 
    Carte graphique : MSI RTX 3060 VENTUS 2X 12G OC - Alimentation : M.RED ATX 750W - 80+BRONZE - Systeme d'exploitation : Microsoft Windows 11 HOME
   ",
-  405,899,"produit5.jpg",31,b'1',7,5
+  405,899,"produit5.png",31,b'1',7,5
   ),
   ("PC BUREAUTIQUE MAXOTEK BURO STATION",
   "Boîtier PC : Antec P7 Silent - Processeur : Intel Core i5-10400F - Carte mère : Asus PRIME H510M-K - Mémoire : Crucial DDR4 3200 - 16Go - 2x8Go - Disque SSD : Crucial SSD P3 M.2 NVMe - 500Go - 
    Carte graphique : MSI GTX 1660 SUPER VENTUS XS OC - Alimentation : M.RED ATX 750W - 80+BRONZE - Systeme d'exploitation : Microsoft Windows 11 PRO
   ",
-  454,1249,"produit6.jpg",59,b'1',7,4
+  454,1249,"produit6.png",59,b'1',7,4
   ),
   ("PC BUREAUTIQUE MAXOTEK BURO I3 HOME",
   "Boîtier PC : DUST BLACK FORCE DU-CBF - Processeur : Intel Core i3-10100 - Carte mère : Asus PRIME H510M-K - Mémoire PC : Crucial CT8G4DFRA32A (8Go DDR4 3200 PC25600) - 
    Disque SSD : Kingston 500Go NV1 M.2 NVMe - SNVS/500G - Systeme d'exploitation : Microsoft Windows 11 HOME
   ",
-  654,918,"produit7.jpg",71,b'1',7,6
+  654,918,"produit7.png",71,b'1',7,6
   ),
   ("PC BUREAUTIQUE MAXOTEK MINI BURO I7",
   "Barebone et Mini-PC Intel RNUC12WSKI70000 - i7-1260P/SO-DDR4/M.2/NO CORD - Mémoire PC portable Crucial SO-DIMM 16Go DDR4 3200 CT16G4SFRA32A - Disque SSD Crucial 1To - 
    Connectique PC Câble Alimentation 220V en trèfle - Sans systeme d'exploitation
   ",
-  254,1002,"produit8.jpg",51,b'1',7,6
+  254,1002,"produit8.png",51,b'1',7,6
   ),
 
   ("PC GAMER MAXOTEK BILLSPIRIT PREMIUM",
    "32 Go DDR5 - 2 To SSD NVMe - Wifi intégré - RTX 4090 - Ryzen 7 7800X3D360 mm RGB",
-   249,385,"produit9.jpg",17,b'1',8,2
+   249,385,"produit9.png",17,b'1',8,2
   ),
   ("PC GAMER Maxotek BILLDOZER",
    "32 Go DDR5 - 2 To SSD NVMe - Wi-Fi Intégré - RTX 4090 - Intel i9 13900K - Windows 11 Home",
-   773,769,"produit10.jpg",24,b'1',8,3
+   773,769,"produit10.png",24,b'1',8,3
   ),
   ("PC GAMER BILLGAMER ULTRA",
    "32 Go DDR5 - 2To SSD NVMe - WiFi intégré - RTX 4080 - Ryzen 7 7700X",
-   459,784,"produit11.jpg",74,b'1',8,3
+   459,784,"produit11.png",74,b'1',8,3
   ),
   ("PC GAMER Maxotek BILLSPIRIT EVO",
    "16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   743,1219,"produit12.jpg",38,b'1',8,4
+   743,1219,"produit2.png",38,b'1',8,4
   ),
 
   ("ASUS E510MANS - SACOCHE, SOURIS, OFFICE365(1AN)", "16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   704,1413,"produit13.jpg",66,b'1',9,2
+   704,1413,"produit13.png",66,b'1',9,2
   ),
   ("LENOVO V15 G3 IAP - 82TT00AHFR","16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   369,298,"produit14.jpg",34,b'1',9,4
+   369,298,"produit14.png",34,b'1',9,4
   ),
   ("HP 250 G8",
    "16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   698,1497,"produit15.jpg",11,b'1',9,3
+   698,1497,"produit15.png",11,b'1',9,3
   ),
   ("ASUS EXPERTBOOK B1 B1500CENT-BQ1657R","16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   510,1414,"produit16.jpg",71,b'1',9,2
+   510,1414,"produit16.png",71,b'1',9,2
   ),
 
   ("ASUS 15 X515EA-BQ2664W",
@@ -369,21 +369,21 @@ VALUES
    Avec son écran Full HD de 15,6 pouces et son processeur Intel Core i5 de 8 ème génération, ce PC portable est capable de traiter rapidement toutes sortes de tâches. 
    De plus, sa mémoire RAM de 8 Go et son disque dur SSD de 512 Go lui permettent de stocker de nombreux fichiers et de travailler sans interruption.
    ",
-  216,738,"produit17.jpg",10,b'1',10,6
+  216,738,"produit17.png",10,b'1',10,6
   ),
   ("ASUS X515EA-BQ2663W",
    "Améliorez votre productivité avec le PC portable Asus 90NB0TY2-M020K0 15.6 - i3-1115G4/8Go/512Go SSD. 
    Ce PC portable pourra vous suivre dans tous vos déplacements tout en vous permettant de travailler efficacement grâce à son processeur Intel Core i3, 
    ses 8Go de RAM et son SSD de 512 Go.
    ",
-  811,694,"produit18.jpg",11,b'1',10,5
+  811,694,"produit17.png",11,b'1',10,5
   ),
   ("MSI PRESTIGE 15 A12SC-033XFR",
    "Le PC portable MSI vous offre une puissance impressionnante et des performances multimédia exceptionnelles. Avec son chipset graphique NVIDIA GeForce GTX 1650 et sa taille 15,6”, 
    vous profiterez des meilleures performances pour du streaming, de l'édition de vidéos, de la bureautique et des jeux. 
    D'une résolution de 1920x1080 et d'une fréquence de 60 Hz, ce PC portable MSI offre à ses utilisateurs un confort optimum lors de leurs sessions multimédia.
   ",
-  859,247,"produit19.jpg",79,b'1',10,1
+  859,247,"produit19.png",79,b'1',10,1
   ),
   ("ACER ASPIRE A515-47-R2WY",
   "Le PC portable Acer Aspire A515-47-R2WY est le choix parfait pour les professionnels exigeants. Avec un processeur R7-5825U de pointe, 
@@ -391,7 +391,7 @@ VALUES
   tandis que le disque dur de 512 Go vous offre suffisamment d'espace de stockage pour toutes vos données et fichiers importants. 
   Que vous travailliez sur des documents de grande taille, des présentations ou des graphiques, le PC portable Acer Aspire A515-47-R2WY répondra à tous vos besoins.
   ",
-  842,632,"produit20.jpg",41,b'1',10,1
+  842,632,"produit20.png",41,b'1',10,1
   ),
 
   ("GIGABYTE AORUS 17H BXF-74FR554SH",
@@ -401,7 +401,7 @@ VALUES
     i7-13700H Processor 5.0 GHz (24MB Cache, up to 5.0 GHz, 6 P-cores and 8 E- cores) - Carte Graphique Intel® Iris Xe Graphics,NVIDIA® GeForce RTX™ 4080 Laptop GPU 12GB GDDR6
     Boost Clock 2010 MHz / Maximum Graphics Power 150 W
    ",
-   252,1360,"produit21.jpg",45,b'1',11,3
+   252,1360,"produit21.png",45,b'1',11,3
   ),
   ("MSI PULSE GL66 12UGSZOK-888FR",
    "Système d'Exploitation - 
@@ -410,21 +410,21 @@ VALUES
     i7-13700H Processor 5.0 GHz (24MB Cache, up to 5.0 GHz, 6 P-cores and 8 E- cores) - Carte Graphique Intel® Iris Xe Graphics,NVIDIA® GeForce RTX™ 4080 Laptop GPU 12GB GDDR6
     Boost Clock 2010 MHz / Maximum Graphics Power 150 W
    ",
-   480,237,"produit22.jpg",20,b'1',11,2
+   480,237,"produit22.png",20,b'1',11,2
   ),
   ("ERAZER SCOUT E20 MD62521 FR",
   "Le PC Portable ERAZER SCOUT E20 MD62521 FR est un ordinateur portable de jeu abordable mais puissant qui offre des performances de jeu exceptionnelles. 
    Avec un processeur Intel Core i5 et un chipset graphique GF RTX4050, ce PC portable est capable de gérer des jeux graphiquement intensifs sans ralentissement.
    Vous pouvez ainsi profiter d'une expérience de jeu fluide et immersive, où que vous soyez.
    ",
-   484,202,"produit23.jpg",66,b'1',11,6
+   484,202,"produit23.png",66,b'1',11,6
   ),
   ("GIGABYTE G5 GE-51FR263SH",
   "Ce PC portable Gigabyte G5 GE-51FR263SH a été conçu spécialement pour les gamers qui cherchent à exploiter tout le potentiel de leurs jeux vidéo préférés. 
   Grâce à son processeur Intel Core i5-12500H, ses 8 Go de RAM et sa carte graphique NVIDIA GeForce RTX 3050, 
   cet ordinateur est capable d'afficher des images ultra-réalistes et des textures détaillées même dans les jeux les plus exigeants
   ",
-  214,344,"produit24.jpg",47,b'1',11,1
+  214,344,"produit24.png",47,b'1',11,1
   ),
 
   ("MSI MPG B550 GAMING PLUS",
@@ -433,99 +433,99 @@ VALUES
   La carte mère est également équipée d'une connectivité Ethernet Gigabit pour une connectivité rapide et fiable, 
   ainsi que de connecteurs USB 3.2 Gen 2 pour des transferts de données rapides.
   ",
-  805,475,"produit25.jpg",37,b'1',12,3
+  805,475,"produit25.png",37,b'1',12,3
   ),
   ("ASUS PRIME B660-PLUS D4",
   "La carte mère Asus PRIME B660 PLUS D4 LGA 1700 ATX peut accueillir des disques SSD au format SATA III mais aussi M.2 pour que vous puissiez bâtir la configuration professionnelle, 
   multimédia ou gamer qui correspond le plus à vos attentes.
   ",
-  720,653,"produit26.jpg",52,b'1',12,5
+  720,653,"produit26.png",52,b'1',12,5
   ),
   ("GIGABYTE B550 GAMING X V2",
   "La carte mère Gigabyte B550 GAMING X V2 est la solution idéale pour les joueurs les plus exigeants. Compatible avec les processeurs AMD Ryzen de dernière génération, 
   cette carte mère ATX offre des performances optimales grâce à son chipset B550. Elle est dotée de la technologie Smart Fan 5, 
   qui permet de contrôler facilement la température du système, ainsi que de la connectivité haut débit grâce à sa prise en charge du Wi-Fi 6 et du LAN Gigabit.
   ",
-  676,420,"produit27.jpg",76,b'1',12,5
+  676,420,"produit27.png",76,b'1',12,5
   ),
   ("GIGABYTE Z790 GAMING X AX",
   "La carte mère Z790 Gaming X AX est conçue avec comme objectif de cocher toutes les cases pour les gamers. 
   Retrouvé donc un concentré de technologie haut de gamme pour assurer de délivrer les performances maximal de tous vos composants dernier cri. 
   Support DDR5, PCiE Gen 5, un socket LGA 1700 on vous dira tout sur cette carte mère digne des plus grands PC Gamer. 
   ",
-  516,907,"produit28.jpg",75,b'1',12,4
+  516,907,"produit28.png",75,b'1',12,4
   ),
 
   ("INTEL CORE I5-12400F",
   "Nombre de coeur : 6 coeurs - Fréquence processeur : de 2,5 à 2,99GHz - Mémoire Cache : 18Mo",
-  287,473,"produit29.jpg",31,b'1',13,4
+  287,473,"produit29.png",31,b'1',13,4
   ),
   ("AMD RYZEN 7 7700X",
   "le constructeur AMD a mis au point une nouvelle série de processeurs. Voici la série AMD Ryzen 7000, une série de processeurs capables de vous permettre de jouer, 
    travailler, monter des vidéos en toute simplicité.
    Découvrez le processeur AMD Ryzen 7 7700X - 5,4GHZ/40MO/AM5/BOX disponible au meilleur prix chez Maxotek, expert High Tech.
   ",
-  365,1307,"produit30.jpg",53,b'1',13,4
+  365,1307,"produit30.png",53,b'1',13,4
   ),
   ("INTEL CORE I7-13700",
   "Nombre de coeur : 16 coeurs - Fréquence processeur : de 5 à 5,99GHz - Mémoire Cache : 30Mo",
-  800,1130,"produit31.jpg",76,b'1',13,6
+  800,1130,"produit31.png",76,b'1',13,6
   ),
   ("AMD RYZEN 7 5800X3D",
   "AMD Ryzen 7 5800X3D. Famille de processeur: AMD Ryzen™ 7, Socket de processeur (réceptable de processeur): Emplacement AM4, Lithographie du processeur: 7 nm. 
   Canaux de mémoire: Dual-channel, Types de mémoires pris en charge par le processeur: DDR4-SDRAM, 
   Vitesses d'horloge de mémoire prises en charge par le processeur: 2667,2933,3200 MHz
   ",
-  547,990,"produit32.jpg",37,b'1',13,2
+  547,990,"produit32.png",37,b'1',13,2
   ),
 
   ("GIGABYTE GEFORCE RTX 4070 TI",
   "Une puissance de traitement graphique exceptionnelle grâce à la technologie GeForce RTX™ 4070 Ti",
-  865,765,"produit33.jpg",47,b'1',14,3
+  865,765,"produit33.png",47,b'1',14,3
   ),
   ("MSI GEFORCE RTX 4060 TI GAMING X 16G",
   "Élevez votre expérience de gaming à un tout autre niveau avec la GeForce RTX 4060 Ti GAMING X 16G. 
   Elle offre une puissance inégalée pour vous immerger pleinement dans vos aventures virtuelles.
   ",
-  674,472,"produit34.jpg",63,b'1',14,4
+  674,472,"produit34.png",63,b'1',14,4
   ),
   ("ASUS GEFORCE RTX 4060 DUAL",
   "Vivez l'expérience de jeu ultime avec la NVIDIA GeForce RTX 4060 Ti, une carte graphique conçue pour les joueurs exigeants. 
   Grâce à sa mémoire vidéo de 8 Go et son interface mémoire de 128 bits, vous bénéficiez d'une vitesse de traitement inégalée et d'une immersion totale dans vos jeux préférés.
   ",
-  257,1190,"produit35.jpg",23,b'1',14,2
+  257,1190,"produit35.png",23,b'1',14,2
   ),
   ("GIGABYTE RTX 4070 WINDFORCE OC",
   "La carte graphique Gigabyte RTX 4070 Windforce OC 12G est équipée de cœurs Tensor 4ème gen et de cœurs RT 3ème gen, ce qui en fait une carte graphique de dernière génération.",
-  543,273,"produit36.jpg",34,b'1',14,2
+  543,273,"produit36.png",34,b'1',14,2
   ),
 
   ("SPIRIT OF GAMER DEMON ARMY",
    "Vous souhaitez profiter d’un siège gamer design, confortable et ergonomique, 
    le siège PC Demon of Army de Spirit Of Gamer est le siège idéal pour attaquer vos sessions gaming et pour ajouter à votre univers gamer
    ",
-   249,385,"produit9.jpg",17,b'1',15,2
+   249,385,"produit37.png",17,b'1',15,2
   ),
   ("REKT ULTIM8 PLUS",
   "Le siège PC gamer REKT Ultim8 Plus offre le confort et le style absolus pour les gamers les plus exigeants. 
   Doté d'un revêtement en tissu gris foncé, sa mousse 4D confortable vous permet de jouer en toute sérénité pendant des heures. 
   Sa facilité de montage vous permet de le monter facilement et rapidement, afin de vous éviter toute frustration
   ",
-  840,1095,"produit38.jpg",57,b'1',15,4
+  840,1095,"produit38.png",57,b'1',15,4
   ),
   ("REKT GG1-R - CUIR/4D",
   "sa moulure ergonomique offre un soutien confortable à chaque session de jeu. Offrant un espace de rangement intégré pour les accessoires de jeu et les articles essentiels, 
   ce siège peut également être réglé à 4D pour vous assurer un ajustement optimal.
   ",
-  724,1375,"produit39.jpg",14,b'1',15,5
+  724,1375,"produit39.png",14,b'1',15,5
   ),
   ("AKRACING MASTERS SÉRIE MAX CUIR/4D",
   "Le siège gaming AKRacing Masters Série Max est conçu pour offrir un confort suprême pendant de longues heures de jeu. Avec un rembourrage en mousse haute densité, 
   ce siège offre un excellent soutien pour votre corps et votre dos, vous permettant de vous concentrer sur votre jeu sans être distrait par des douleurs musculaires ou articulaires
   ",
-  278,341,"produit40.jpg",67,b'1',15,4
+  278,341,"produit40.png",67,b'1',15,4
   ),
-
+----------------------------------------------------------------------------------------------here----dltme----------------------
   ("THE G-LAB KEYZ PLATINIUM",
   "Utilisation : Gamer - Couleur : Noir - Couleur : RGB - Connectivité : Filaire - Type de clavier : Mécanique - Rétroéclairé : Rétroéclairé - Interface avec le PC : USB 2.0",
   402,581,"produit41.jpg",62,b'1',16,5

@@ -287,32 +287,32 @@ VALUES
   "Boîtier PC MSI MPG GUNGNIR 110R - Processeur Intel Core i5-13600KF - Carte mère Asus PRIME B660-PLUS D4 - Mémoire Kingston 16 Go - Disque SSD WD 1To BLUE SN570 M.2 NVMe - 
    Watercooling Azza GaleForce 240 ARGB - Carte Graphique RTX 4070 Ti - Alimentation M.RED ATX 850W - 80+GOLD - F.Mod/RGB - Carte réseau Asus PCE-AX3000 - Sans systeme d'exploitation
    ",
-   409,736,"produit1.png",45,b'1',6,5
+   409,739.99,"produit1.png",45,b'1',6,5
   ),
   ("MAXOTEK BILLSPIRIT EVO",
   "Boitier PC M.RED Crystal Sea Noir - Processeur Intel Processeur Core i7-13700KF - Carte mère Asus PRIME Z790-P WIFI D4 - Mémoire PC Kingston 16Go - Disque SSD Crucial 2To M.2 NVMe - 
    Watercooling Azza Galeforce 360 ARGB - Carte Graphique RTX 4070 Ti 12Go - Alimentation A1000G Gen 5 - Sans systeme d'exploitation
   ",
-  585,1254,"produit2.png",45,b'1',6,2
+  585,1254.99,"produit2.png",45,b'1',6,2
   ),
   ("MAXOTEK EDUC PREMIUM",
   "Boîtier PC Antec VSK 10 - Processeur INTEL Core i5-12400 - Carte mère MSI PRO B660M-A WIFI DDR4 - Mémoire PC 16Go - Disque SSD P3 M.2 NVMe - 
    Alimentation DUST ATX 500W - (Ventilateur 12cm) - Windows 11 Home
   ",
-  222,1357,"produit3.png",76,b'1',6,1
+  222,357.90,"produit3.png",76,b'1',6,1
   ),
   ("MAXOTEK BILLGAMER",
   "Boitier PC M.RED ELITE BLACK Rainbow ARGB MR-006 - Processeur Ryzen 7 5800X3D - Carte mère Asus TUF GAMING B550-PLUS - Mémoire PC 16Go - Watercooling AIO 240mm RGB Rainbow - 
    Disque SSD 1To BLUE SN570 M.2 NVMe - Carte Graphique RX 7900 XT 20G - Alimentation ATX 850W 80+ Gold - Sans système d'exploitation
   ",
-  577,1341,"produit4.png",20,b'1',6,1
+  577,1339.99,"produit4.png",20,b'1',6,1
   ),
 
   ("PC BUREAUTIQUE MAXOTEK EDUC",
   "Boîtier PC : Antec P7 Silent - Processeur : Intel Core i7-12700 - Carte mère : MSI PRO B660M-A WIFI DDR4 - Mémoire : Crucial DDR4 3200 - 32Go 4x8Go - Disque SSD : Crucial P3 M.2 NVMe - 500Go - 
    Carte graphique : MSI RTX 3060 VENTUS 2X 12G OC - Alimentation : M.RED ATX 750W - 80+BRONZE - Systeme d'exploitation : Microsoft Windows 11 HOME
   ",
-  405,899,"produit5.png",31,b'1',7,5
+  405,899.99,"produit5.png",31,b'1',7,5
   ),
   ("PC BUREAUTIQUE MAXOTEK BURO STATION",
   "Boîtier PC : Antec P7 Silent - Processeur : Intel Core i5-10400F - Carte mère : Asus PRIME H510M-K - Mémoire : Crucial DDR4 3200 - 16Go - 2x8Go - Disque SSD : Crucial SSD P3 M.2 NVMe - 500Go - 
@@ -324,7 +324,7 @@ VALUES
   "Boîtier PC : DUST BLACK FORCE DU-CBF - Processeur : Intel Core i3-10100 - Carte mère : Asus PRIME H510M-K - Mémoire PC : Crucial CT8G4DFRA32A (8Go DDR4 3200 PC25600) - 
    Disque SSD : Kingston 500Go NV1 M.2 NVMe - SNVS/500G - Systeme d'exploitation : Microsoft Windows 11 HOME
   ",
-  654,918,"produit7.png",71,b'1',7,6
+  654,999.99,"produit7.png",71,b'1',7,6
   ),
   ("PC BUREAUTIQUE MAXOTEK MINI BURO I7",
   "Barebone et Mini-PC Intel RNUC12WSKI70000 - i7-1260P/SO-DDR4/M.2/NO CORD - Mémoire PC portable Crucial SO-DIMM 16Go DDR4 3200 CT16G4SFRA32A - Disque SSD Crucial 1To - 
@@ -339,7 +339,7 @@ VALUES
   ),
   ("PC GAMER Maxotek BILLDOZER",
    "32 Go DDR5 - 2 To SSD NVMe - Wi-Fi Intégré - RTX 4090 - Intel i9 13900K - Windows 11 Home",
-   773,769,"produit10.png",24,b'1',8,3
+   773,769.99,"produit10.png",24,b'1',8,3
   ),
   ("PC GAMER BILLGAMER ULTRA",
    "32 Go DDR5 - 2To SSD NVMe - WiFi intégré - RTX 4080 - Ryzen 7 7700X",
@@ -347,7 +347,7 @@ VALUES
   ),
   ("PC GAMER Maxotek BILLSPIRIT EVO",
    "16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   743,1219,"produit2.png",38,b'1',8,4
+   743,1219.99,"produit2.png",38,b'1',8,4
   ),
 
   ("ASUS E510MANS - SACOCHE, SOURIS, OFFICE365(1AN)", "16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
@@ -361,7 +361,7 @@ VALUES
    698,1497,"produit15.png",11,b'1',9,3
   ),
   ("ASUS EXPERTBOOK B1 B1500CENT-BQ1657R","16 Go DDR4 - 2 To SSD NVMe - Wi-Fi intégré - RTX 4070Ti - Intel i7 13700KF - Windows en option",
-   510,1414,"produit16.png",71,b'1',9,2
+   510,1409.99,"produit16.png",71,b'1',9,2
   ),
 
   ("ASUS 15 X515EA-BQ2664W",
@@ -376,14 +376,14 @@ VALUES
    Ce PC portable pourra vous suivre dans tous vos déplacements tout en vous permettant de travailler efficacement grâce à son processeur Intel Core i3, 
    ses 8Go de RAM et son SSD de 512 Go.
    ",
-  811,694,"produit17.png",11,b'1',10,5
+  811,994.99,"produit17.png",11,b'1',10,5
   ),
   ("MSI PRESTIGE 15 A12SC-033XFR",
    "Le PC portable MSI vous offre une puissance impressionnante et des performances multimédia exceptionnelles. Avec son chipset graphique NVIDIA GeForce GTX 1650 et sa taille 15,6”, 
    vous profiterez des meilleures performances pour du streaming, de l'édition de vidéos, de la bureautique et des jeux. 
    D'une résolution de 1920x1080 et d'une fréquence de 60 Hz, ce PC portable MSI offre à ses utilisateurs un confort optimum lors de leurs sessions multimédia.
   ",
-  859,247,"produit19.png",79,b'1',10,1
+  859,947.99,"produit19.png",79,b'1',10,1
   ),
   ("ACER ASPIRE A515-47-R2WY",
   "Le PC portable Acer Aspire A515-47-R2WY est le choix parfait pour les professionnels exigeants. Avec un processeur R7-5825U de pointe, 
@@ -391,7 +391,7 @@ VALUES
   tandis que le disque dur de 512 Go vous offre suffisamment d'espace de stockage pour toutes vos données et fichiers importants. 
   Que vous travailliez sur des documents de grande taille, des présentations ou des graphiques, le PC portable Acer Aspire A515-47-R2WY répondra à tous vos besoins.
   ",
-  842,632,"produit20.png",41,b'1',10,1
+  842,932.99,"produit20.png",41,b'1',10,1
   ),
 
   ("GIGABYTE AORUS 17H BXF-74FR554SH",
@@ -401,7 +401,7 @@ VALUES
     i7-13700H Processor 5.0 GHz (24MB Cache, up to 5.0 GHz, 6 P-cores and 8 E- cores) - Carte Graphique Intel® Iris Xe Graphics,NVIDIA® GeForce RTX™ 4080 Laptop GPU 12GB GDDR6
     Boost Clock 2010 MHz / Maximum Graphics Power 150 W
    ",
-   252,1360,"produit21.png",45,b'1',11,3
+   252,1359.99,"produit21.png",45,b'1',11,3
   ),
   ("MSI PULSE GL66 12UGSZOK-888FR",
    "Système d'Exploitation - 
@@ -410,7 +410,7 @@ VALUES
     i7-13700H Processor 5.0 GHz (24MB Cache, up to 5.0 GHz, 6 P-cores and 8 E- cores) - Carte Graphique Intel® Iris Xe Graphics,NVIDIA® GeForce RTX™ 4080 Laptop GPU 12GB GDDR6
     Boost Clock 2010 MHz / Maximum Graphics Power 150 W
    ",
-   480,237,"produit22.png",20,b'1',11,2
+   480,737.99,"produit22.png",20,b'1',11,2
   ),
   ("ERAZER SCOUT E20 MD62521 FR",
   "Le PC Portable ERAZER SCOUT E20 MD62521 FR est un ordinateur portable de jeu abordable mais puissant qui offre des performances de jeu exceptionnelles. 
@@ -525,131 +525,131 @@ VALUES
   ",
   278,341,"produit40.png",67,b'1',15,4
   ),
-----------------------------------------------------------------------------------------------here----dltme----------------------
+
   ("THE G-LAB KEYZ PLATINIUM",
   "Utilisation : Gamer - Couleur : Noir - Couleur : RGB - Connectivité : Filaire - Type de clavier : Mécanique - Rétroéclairé : Rétroéclairé - Interface avec le PC : USB 2.0",
-  402,581,"produit41.jpg",62,b'1',16,5
+  402,581,"produit41.png",62,b'1',16,5
   ),
   ("SPIRIT OF GAMER XPERT-K400",
   "Ce clavier gaming PC Spirit of Gamer Xpert-K400, est le modèle idéal si vous êtes à la recherche d’un clavier mécanique RGB 
   performant et esthétique de type filaire pour vos parties de jeu en entrée de gamme
   ",
-  863,920,"produit42.jpg",49,b'1',16,4
+  863,920,"produit42.png",49,b'1',16,4
   ),
   ("THE G-LAB KEYZ CAESIUM",
   "e clavier PC The G-Lab Keyz Caesium, un clavier PC gamer à membrane qui vous apportera un confort d’utilisation incroyable 
   ainsi qu’une possibilité de de personnalisation d’ambiance intéressante.",
-  684,896,"produit43.jpg",33,b'1',16,5
+  684,896,"produit43.png",33,b'1',16,5
   ),
   ("SPIRIT OF GAMER PRO-K5",
   "Utilisation : Gamer - Couleur : Noir - Couleur : RGB - Connectivité : Filaire - Type de clavier : Classique - Interface avec le PC : USB 2.0",
-  367,284,"produit44.jpg",59,b'1',16,4
+  367,284,"produit44.png",59,b'1',16,4
   ),
 
   ("GIGABYTE AORUS M3 - FILAIRE",
   " Maxotek vous propose sa souris PC Gigabyte Aorus M3. Performante et design, elle va devenir votre bras droit durant vos parties de jeu",
-  814,485,"produit45.jpg",58,b'1',17,5
+  814,485,"produit45.png",58,b'1',17,5
   ),
   ("LOGITECH G305 LOL K/DA - SANS FIL",
   "La souris PC Logitech G305 LOL K/DA est conçue avec un design époustouflant qui combine un look moderne en blanc et noir avec des fonctionnalités 
   spécialement adaptées pour le gaming. Avec ses formes ergonomiques, elle s'adapte parfaitement à la main pour un confort optimal, même pendant les longues sessions de jeu.
   ",
-  505,757,"produit46.jpg",49,b'1',17,2
+  505,757,"produit46.png",49,b'1',17,2
   ),
   ("SPIRIT OF GAMER PRO M9 - SANS FIL",
   "La souris Spirit of Gamer Pro-M9 (S-PM9RF) est spécialement conçue pour répondre aux besoins des gamers. 
   Avec sa performance exceptionnelle et ses fonctionnalités avancées, elle offre une expérience de jeu immersive et vous permet de surpasser vos adversaires.
   ",
-  645,1179,"produit47.jpg",12,b'1',17,1
+  645,1179,"produit47.png",12,b'1',17,1
   ),
   ("CORSAIR DARK CORE PRO - SANS FIL",
   "Achetez cette incroyable souris gamer sans fil Corsair DARKCORE RGB PRO pour profiter d’une session de jeu de haute qualité. 
   En effet, ce petit bijou signé Corsair a été pensé par et pour les gamers pour un confort et des performances optimaux",
-  703,1030,"produit48.jpg",41,b'1',17,6
+  703,1030,"produit48.png",41,b'1',17,6
   ),
 
   ("IIYAMA G-MASTER GCB3280QSU-B1",
   "L'écran PC Iiyama GCB3280QSU-B1 31.5 CURVE QHD/165Hz/0.2ms/VA/FS est le meilleur choix pour profiter d'une qualité visuelle exceptionnelle. 
   Avec sa technologie CURVE QHD et ses 165Hz, vous bénéficierez d'une expérience immersive et immédiate.
   ",
-  690,1189,"produit49.jpg",46,b'1',18,5
+  690,1189,"produit49.png",46,b'1',18,5
   ),
   ("MSI G32CQ4 E2",
   "l’écran PC MSI G32CQ4 E2 dispose tout d’abord d’une taille de 32” qui garantit un espace d’affichage très grand et agréable. 
   Ce n’est pas tout, il dispose d’une résolution de 2560 x 1440 pixels, ce qui offre un rendu WQHD",
-  693,555,"produit50.jpg",23,b'1',18,3
+  693,555,"produit50.png",23,b'1',18,3
   ),
   ("AOC 24G2SPU/BK",
   "Superbes couleurs, ultra rapide. Quel que soit votre jeu, profitez-en sur le modèle AOC 24G2SPU
    La fréquence de rafraîchissement à 165 Hz, le temps de réponse (MPRT) de 1 ms 
    et la compatibilité FreeSync Premium de l'AOC 24G2SPU suppriment tous les effets de saccades et de distorsion.
    ",
-  550,897,"produit51.jpg",21,b'1',18,3
+  550,897,"produit51.png",21,b'1',18,3
   ),
   ("ASUS ROG STRIX XG27AQ-W",
   "Voici l’écran PC Asus Rog STRIX XG27AQ-W, un écran fait pour les gamers qui vous permettra de révolutionner votre expérience pendant de  nombreuses années.",
-  638,1445,"produit52.jpg",39,b'1',18,3
+  638,1445,"produit52.png",39,b'1',18,3
   ),
 
   ("TRUST PRIMO",
   "le clavier PC Trust Primo Noir équipé de la technologie Membrane. 
   Cette technologie offre une réponse douce et silencieuse à chaque pression de touche, pour un confort optimal lors de la saisie de vos textes et de vos données.
   ",
-  847,1276,"produit53.jpg",31,b'1',19,2
+  847,1276,"produit53.png",31,b'1',19,2
   ),
   ("CHERRY KC 6000 SLIM ARGENT",
   "Le clavier Cherry KC 6000 Slim est conçu pour résister à l'épreuve du temps. Chaque touche est capable de supporter jusqu'à 10 millions de frappes, 
   garantissant ainsi une durabilité exceptionnelle même lors d'une utilisation intensive.",
-  279,888,"produit54.jpg",27,b'1',19,2
+  279,888,"produit54.png",27,b'1',19,2
   ),
   ("LOGITECH MX KEYS MINI GRIS",
   "Le clavier LOGITECH MX KEYS MINI est conçu pour résister à l'épreuve du temps. Chaque touche est capable de supporter jusqu'à 10 millions de frappes, 
   garantissant ainsi une durabilité exceptionnelle même lors d'une utilisation intensive.",
-  841,1195,"produit55.jpg",20,b'1',19,2
+  841,1195,"produit55.png",20,b'1',19,2
   ),
   ("LOGITECH MX KEYS GRAPHITE",
   "ce fantastique clavier PC Logitech MX Keys graphite. En effet, cette petite merveille venue tout droit du constructeur 
   Logitech a été spécialement conçue pour un usage bureautique, mais également pour un usage professionnel ou multimédia.",
-  701,1153,"produit56.jpg",11,b'1',19,1
+  701,1153,"produit56.png",11,b'1',19,1
   ),
 
   ("TRUST BASI - FILAIRE",
   "La Trust Basi est conçue pour s'adapter parfaitement à votre main, vous offrant ainsi un confort optimal.",
-  877,779,"produit57.jpg",27,b'1',20,4
+  877,779,"produit57.png",27,b'1',20,4
   ),
   ("MCL SAMAR SS-212U - FILAIRE",
   "La souris PC MCL Samar SS-212U est un choix idéal pour les utilisateurs recherchant une souris élégante et performante. 
   Disponible en couleur noir/argent, cette souris filaire offre des fonctionnalités avancées pour améliorer votre expérience d'utilisation.",
-  572,432,"produit58.jpg",73,b'1',20,4
+  572,432,"produit58.png",73,b'1',20,4
   ),
   ("LOGITECH M187 MINI - BLANC/SANS FIL",
   "Cette souris de bureau blanche signée Logitech vous offre tout le confort dont vous avez besoin pour travailler sereinement durant plusieurs heures. 
   Que vous soyez étudiant, professionnel ou particulier, cette souris saura répondre à vos attentes pour les activités multimédias et la bureautique.
   ",
-  701,1382,"produit59.jpg",76,b'1',20,4
+  701,1382,"produit59.png",76,b'1',20,4
   ),
   ("LOGITECH MX VERTICAL - GRIS/SANS FIL",
   "Vous ressentez des douleurs aux poignets après vos journées de travail sur ordinateur ? Les souris ergonomiques sont conçues pour régler ce problème.",
-  358,1276,"produit60.jpg",49,b'1',20,6
+  358,1276,"produit60.png",49,b'1',20,6
   ),
 
   ("LOGITECH H540 - NOIR/USB/FILAIRE",
   "Utilisation : Bureautique - Type : Supra-auriculaire - Connectivité : Filaire - Couleur : Noir - Connecteur : USB - Micro : Oui - Technologie Audio :Stereo",
-  327,371,"produit61.jpg",80,b'1',21,6
+  327,371,"produit61.png",80,b'1',21,6
   ),
   ("T'NB ACTIV 400S - BLUETOOTH STÉRÉO",
   "Concepteurs de qualité audio, T'nB a créé le micro casque Activ 400S pour répondre aux attentes des mélomanes les plus exigeants. 
    Grâce à sa connectivité sans fil, vous pouvez écouter de la musique ou passer des appels sans être gêné par des câbles encombrants.",
-  487,818,"produit62.jpg",48,b'1',21,1
+  487,818,"produit62.png",48,b'1',21,1
   ),
   ("BLUESTORK MC 401 STEREO",
   "Utilisation : Pro - Type : Supra-auriculaire - Connectivité : Filaire - Couleur : Gris - Connecteur : Jack 3.5 - Micro : Oui - Technologie Audio :Stereo",
-  765,285,"produit63.jpg",30,b'1',21,2
+  765,285,"produit63.png",30,b'1',21,2
   ),
   ("BLUESTORK MC301",
   "Si vous recherchez un modèle qui vous permet de discuter en ligne, au bureau ou à la maison tout en réduisant complètement le bruit de fond, 
   ce micro casque Bluestork MC301 est le choix parfait pour obtenir une excellente qualité sonore.",
-  470,780,"produit64.jpg",59,b'1',21,3
+  470,780,"produit64.png",59,b'1',21,3
   );
 
 

@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS projet_maxotek;
+DROP DATABASE IF EXISTS maxotek;
 
-CREATE DATABASE projet_maxotek;
+CREATE DATABASE maxotek;
 
-USE projet_maxotek;
+USE maxotek;
 
 CREATE TABLE categorie(
    categ_id INT NOT NULL AUTO_INCREMENT,

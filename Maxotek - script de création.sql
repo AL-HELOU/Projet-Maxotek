@@ -37,6 +37,7 @@ CREATE TABLE mode_paiement(
    paiement_id INT NOT NULL AUTO_INCREMENT,
    paiement_libelle VARCHAR(50)  NOT NULL,
    paiement_statut VARCHAR(50)  NOT NULL,
+   paiement_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
    PRIMARY KEY(paiement_id)
 );
 

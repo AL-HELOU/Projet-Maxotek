@@ -659,7 +659,7 @@ INSERT INTO ligne_commande (`ligncom_quantite`,`ligncom_prixunitaire`,`ligncom_p
 VALUES
   (7,1336,18,7),
   (13,642,31,1),
-  (10,480,30,2),
+  (10,480,12,2),
   (4,684,45,4),
   (8,919,64,5),
   (4,479,37,8),

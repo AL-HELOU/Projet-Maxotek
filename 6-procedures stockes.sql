@@ -1,4 +1,4 @@
---une procédure stockée qui sélectionne les commandes non soldées (en cours de livraison)
+-- une procédure stockée qui sélectionne les commandes non soldées (en cours de livraison)
 DELIMITER $
 
 CREATE PROCEDURE lst_commandes_en_livraison()
@@ -12,7 +12,7 @@ DELIMITER ;
 
 
 
---une procédure stockée qui renvoie le délai moyen entre la date de commande et la date de facturation
+-- une procédure stockée qui renvoie le délai moyen entre la date de commande et la date de facturation
 DELIMITER $
 
 CREATE PROCEDURE delai_moyen_datecom_datefacture_jours()

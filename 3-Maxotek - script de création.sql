@@ -218,11 +218,11 @@ VALUES
 
 INSERT INTO mode_paiement (`paiement_libelle`, `paiement_statut`)
 VALUES
-  ("Paiment 1", "Payé"),
-  ("Paiment 2", "Annulé"),
-  ("Paiment 3", "Remboursé"),
-  ("Paiment 4", "En cours"),
-  ("paiment 5","Paiement partiel");
+  ("carte bancaire", "Payé"),
+  ("carte bancaire", "Annulé"),
+  ("virements", "Remboursé"),
+  ("prélèvements", "En cours"),
+  ("virements","Paiement partiel");
 
 
 INSERT INTO administrateur (`admin_nom`,`admin_prenom`,`admin_email`, `admin_password`, `admin_role`)

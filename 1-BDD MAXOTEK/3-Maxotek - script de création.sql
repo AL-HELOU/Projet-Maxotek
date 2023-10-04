@@ -154,7 +154,7 @@ VALUES
   ("PC FIXE", "pcfixe.png", 1),
   ("PC PORTABLE", "pcportable.png", 2),
   ("COMPOSANTS", "composants.png", 3),
-  ("GAMING ZONE", "gamingzone.png", 4),
+  ("GAMING ZONE", "gamingzone.jpg", 4),
   ("COMPOSANTS PC", "composantspc.png", 5),
   
   ("Ordinateur Maxotek", "ordmaxotek.png", 1),

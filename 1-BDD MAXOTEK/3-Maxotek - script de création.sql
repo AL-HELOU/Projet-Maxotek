@@ -142,7 +142,7 @@ CREATE TABLE facturation(
 CREATE TABLE livraison_inclut(
    produit_id BIGINT NOT NULL,
    livraison_id BIGINT NOT NULL,
-   quantite VARCHAR(50) ,
+   quantite INT NOT NULL,
    PRIMARY KEY(produit_id, livraison_id),
    FOREIGN KEY(produit_id) REFERENCES produit(produit_id),
    FOREIGN KEY(livraison_id) REFERENCES livraison(livraison_id)

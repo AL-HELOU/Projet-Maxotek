@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+
+  <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse  ms-5 justify-content-between" id="navbarNav">
+        <div>
+          <ul class="navbar-nav ms-5">
+            <li class="nav-item me-5">
+              <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">Catégories</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="#">Plats</a>
+            </li>
+            <li class="nav-item me-5">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+
+            {% if is_granted('ROLE_ADMIN') %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle me-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Admin
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Catégories</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Plats</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Utilisateurs</a></li>
+                </ul>
+              </li>
+            {% endif %}
+          </ul>
+        </div>       
+          <ul class="navbar-nav me-5 ps-5">
+          <li><hr></li>
+          {% if app.user%}
+            <li class="nav-item dropdown me-5 pe-3">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ app.user.UtilNom|upper  }} {{ app.user.UtilPrenom|capitalize  }}
+              </a>
+              <ul class="dropdown-menu me-5">
+                <li><a class="dropdown-item" href="#">Modifier mes informations</a></li>
+                <li><a class="dropdown-item" href="#">Modifier mon mot de passe</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Déconnexion</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="#">Connexion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Inscription</a>
+            </li>
+          {% endif %}
+          </ul>
+      </div>
+    </div>
+</nav>

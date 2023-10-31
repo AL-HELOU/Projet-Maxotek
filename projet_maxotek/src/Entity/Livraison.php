@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: LivraisonRepository::class)]
 class Livraison
@@ -17,9 +19,19 @@ class Livraison
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Assert\Date(
+        message: 'Cette valeur n\'est pas une date valide.',
+    )]
     private ?\DateTimeImmutable $livraison_date = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Le Nom du livreur doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le Nom du livreur ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $livraison_livreur = null;
 
     #[ORM\ManyToOne(inversedBy: 'livraisons')]

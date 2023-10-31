@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\LigneCommandeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: LigneCommandeRepository::class)]
 class LigneCommande
@@ -15,9 +17,21 @@ class LigneCommande
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Positive(
+        message: 'Cette valeur doit être positive.',
+    )]
     private ?int $ligcom_quantite = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Positive(
+        message: 'Cette valeur doit être positive.',
+    )]
     private ?string $ligcom_prixunitaire = null;
 
     #[ORM\ManyToOne(inversedBy: 'ligneCommandes')]

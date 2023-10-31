@@ -6,6 +6,8 @@ use App\Repository\AdresseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: AdresseRepository::class)]
 class Adresse
@@ -15,13 +17,35 @@ class Adresse
     #[ORM\Column]
     private ?int $id = null;
 
+
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre adresse doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre adresse ne peut pas contenir plus de {{ 255 }} caractères',
+    )]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre ville doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre ville ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $adresse_ville = null;
 
     #[ORM\Column(length: 5)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:5, max:5,
+        minMessage: 'Votre code postal doit comporter {{ 5 }} caractères',
+        maxMessage: 'Votre code postal doit comporter {{ 5 }} caractères',
+    )]
     private ?string $adresse_cp = null;
 
     #[ORM\OneToMany(mappedBy: 'fournis_adresse', targetEntity: Fournisseur::class, orphanRemoval: true)]

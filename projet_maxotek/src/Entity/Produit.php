@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
@@ -17,21 +19,49 @@ class Produit
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Le libelle du produit doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le libelle du produit ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $produit_libelle = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
     private ?string $produit_descrip = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Positive(
+        message: 'Cette valeur doit être positive.',
+    )]
     private ?float $produit_prixachat = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Positive(
+        message: 'Cette valeur doit être positive.',
+    )]
     private ?float $produit_prixht = null;
 
     #[ORM\Column(type: Types::BLOB)]
     private $produit_photo = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Positive(
+        message: 'Cette valeur doit être positive.',
+    )]
     private ?int $produit_stock = null;
 
     #[ORM\Column]

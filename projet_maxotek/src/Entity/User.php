@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -18,6 +20,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Email(
+        message: 'L\'e-mail "{{ value }}" n\'est pas un e-mail valide.',
+    )]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -27,21 +32,46 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $user_nom = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Prenom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre Prenom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $user_prenom = null;
 
     #[ORM\Column(length: 1)]
     private ?string $user_sexe = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Numéro de téléphone doit comporter au moins {{ 8 }} caractères',
+        maxMessage: 'Votre Numéro de téléphone ne peut pas contenir plus de {{ 15 }} caractères',
+    )]
     private ?string $user_tel = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\Choice(['Particulier', 'Professionnel'])]
     private ?string $user_type = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]

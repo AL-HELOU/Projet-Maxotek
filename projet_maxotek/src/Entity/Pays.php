@@ -6,6 +6,8 @@ use App\Repository\PaysRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: PaysRepository::class)]
 class Pays
@@ -16,6 +18,13 @@ class Pays
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Le Nom du pays doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le Nom du pays ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $pays_nom = null;
 
     #[ORM\OneToMany(mappedBy: 'fournis_pays', targetEntity: Fournisseur::class, orphanRemoval: true)]

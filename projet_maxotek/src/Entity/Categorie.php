@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
@@ -17,6 +19,13 @@ class Categorie
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Le libelle de la categorie doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le libelle de la categorie ne peut pas contenir plus de {{ 255 }} caractères',
+    )]
     private ?string $categ_libelle = null;
 
     #[ORM\Column(type: Types::BLOB)]

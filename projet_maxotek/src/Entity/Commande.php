@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
@@ -17,13 +19,30 @@ class Commande
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Assert\Date(
+        message: 'Cette valeur n\'est pas une date valide.',
+    )]
     private ?\DateTimeImmutable $com_date = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Le statut de la commande doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le statut de la commande ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $com_statut = null;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'L\'adresse doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'L\'adresse ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?Adresse $com_adresse = null;
 
     #[ORM\ManyToOne]

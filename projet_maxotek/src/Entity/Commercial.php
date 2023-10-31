@@ -6,6 +6,8 @@ use App\Repository\CommercialRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: CommercialRepository::class)]
 class Commercial
@@ -16,6 +18,13 @@ class Commercial
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $commerc_nom = null;
 
     #[ORM\OneToMany(mappedBy: 'user_commerc', targetEntity: User::class, orphanRemoval: true)]

@@ -6,6 +6,8 @@ use App\Repository\FournisseurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: FournisseurRepository::class)]
 class Fournisseur
@@ -16,12 +18,29 @@ class Fournisseur
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $fournis_nom = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Numéro de téléphone doit comporter au moins {{ 8 }} caractères',
+        maxMessage: 'Votre Numéro de téléphone ne peut pas contenir plus de {{ 15 }} caractères',
+    )]
     private ?string $fournis_tel = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\Email(
+        message: 'L\'e-mail "{{ value }}" n\'est pas un e-mail valide.',
+    )]
     private ?string $fournis_email = null;
 
     #[ORM\ManyToOne(inversedBy: 'fournisseurs')]

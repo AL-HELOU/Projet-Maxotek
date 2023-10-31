@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\FacturationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: FacturationRepository::class)]
 class Facturation
@@ -15,6 +17,9 @@ class Facturation
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Assert\Date(
+        message: 'Cette valeur n\'est pas une date valide.',
+    )]
     private ?\DateTimeImmutable $facture_date = null;
 
     #[ORM\ManyToOne(inversedBy: 'facturations')]

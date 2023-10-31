@@ -6,6 +6,7 @@ use App\Repository\AdministrateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AdministrateurRepository::class)]
 class Administrateur implements UserInterface, PasswordAuthenticatedUserInterface
@@ -16,18 +17,40 @@ class Administrateur implements UserInterface, PasswordAuthenticatedUserInterfac
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $admin_nom = null;
 
+    
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Length(min:2, max:50,
+        minMessage: 'Votre Prenom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Votre Prenom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
     private ?string $admin_prenom = null;
 
+
     #[ORM\Column(length: 180, unique: true)]
+    #[Assert\Email(
+        message: 'L\'e-mail "{{ value }}" n\'est pas un e-mail valide.',
+    )]
     private ?string $email = null;
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
     private ?string $password = null;
 
     #[ORM\Column]

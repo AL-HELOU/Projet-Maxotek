@@ -3,9 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\LivraisonInclutRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: LivraisonInclutRepository::class)]
 class LivraisonInclut
@@ -16,6 +16,12 @@ class LivraisonInclut
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(
+        message: 'Cette valeur ne doit pas être vide.',
+    )]
+    #[Assert\Positive(
+        message: 'Cette valeur doit être positive.',
+    )]
     private ?int $quantite = null;
 
     #[ORM\ManyToOne]

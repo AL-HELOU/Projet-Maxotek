@@ -62,12 +62,16 @@ class Commande
     #[ORM\OneToMany(mappedBy: 'facture_com', targetEntity: Facturation::class, orphanRemoval: true)]
     private Collection $facturations;
 
-
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->livraisons = new ArrayCollection();
         $this->ligneCommandes = new ArrayCollection();
         $this->facturations = new ArrayCollection();
+        
+        $this->com_date = new \DateTimeImmutable();
     }
 
     public function getId(): ?int

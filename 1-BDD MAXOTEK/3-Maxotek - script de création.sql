@@ -538,7 +538,7 @@ VALUES
   863,920,"produit42.png",49,b'1',16,4
   ),
   ("THE G-LAB KEYZ CAESIUM",
-  "e clavier PC The G-Lab Keyz Caesium, un clavier PC gamer à membrane qui vous apportera un confort d’utilisation incroyable 
+  "Ce clavier PC The G-Lab Keyz Caesium, un clavier PC gamer à membrane qui vous apportera un confort d’utilisation incroyable 
   ainsi qu’une possibilité de de personnalisation d’ambiance intéressante.",
   684,896,"produit43.png",33,b'1',16,5
   ),
@@ -609,7 +609,7 @@ VALUES
   841,1195,"produit55.png",20,b'1',19,2
   ),
   ("LOGITECH MX KEYS GRAPHITE",
-  "ce fantastique clavier PC Logitech MX Keys graphite. En effet, cette petite merveille venue tout droit du constructeur 
+  "Ce fantastique clavier PC Logitech MX Keys graphite. En effet, cette petite merveille venue tout droit du constructeur 
   Logitech a été spécialement conçue pour un usage bureautique, mais également pour un usage professionnel ou multimédia.",
   701,1153,"produit56.png",11,b'1',19,1
   ),

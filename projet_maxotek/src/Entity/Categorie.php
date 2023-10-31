@@ -31,9 +31,9 @@ class Categorie
     #[ORM\Column(type: Types::BLOB)]
     private $categ_photo = null;
 
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'sous_categ')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?self $sous_categ = null;
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categ_princip')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?self $categ_princip = null;
 
     #[ORM\OneToMany(mappedBy: 'produit_categ', targetEntity: Produit::class, orphanRemoval: true)]
     private Collection $produits;
@@ -72,14 +72,14 @@ class Categorie
         return $this;
     }
 
-    public function getSousCategId(): ?self
+    public function getCategPrincipId(): ?self
     {
-        return $this->sous_categ;
+        return $this->categ_princip;
     }
 
-    public function setSousCategId(?self $sous_categ): static
+    public function setCategPrincipId(?self $categ_princip): static
     {
-        $this->sous_categ = $sous_categ;
+        $this->categ_princip = $categ_princip;
 
         return $this;
     }

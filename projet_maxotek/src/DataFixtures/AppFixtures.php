@@ -7,8 +7,11 @@ use App\Entity\Adresse;
 use App\Entity\Categorie;
 use App\Entity\Commande;
 use App\Entity\Commercial;
+use App\Entity\Facturation;
 use App\Entity\Fournisseur;
+use App\Entity\LigneCommande;
 use App\Entity\Livraison;
+use App\Entity\LivraisonInclut;
 use App\Entity\ModePaiement;
 use App\Entity\Pays;
 use App\Entity\Produit;
@@ -1291,6 +1294,52 @@ class AppFixtures extends Fixture
 
 
 //------------------------------------------------------------- Ligne Commande Fixtures--------------------------------------------------------------------------------
+
+        $ldg = new LigneCommande();
+        $ldg->setLigcomQuantite('7')
+            ->setLigcomPrixunitaire('1336')
+            ->setLigcomProduit($produit)
+            ->setLigcomCom($commande);
+        $manager->persist($ldg);
+
+        $ldg = new LigneCommande();
+        $ldg->setLigcomQuantite('10')
+            ->setLigcomPrixunitaire('642')
+            ->setLigcomProduit($produit)
+            ->setLigcomCom($commande);
+        $manager->persist($ldg);
+
+
+//------------------------------------------------------------- FIN Ligne Commande Fixtures--------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------- Livraison Inclut Fixtures--------------------------------------------------------------------------------
+
+        $livrinclut = new LivraisonInclut();
+        $livrinclut->setQuantite('7')
+                   ->setProduit($produit)
+                   ->setLivraison($livraison);
+        $manager->persist($livrinclut);
+
+        $livrinclut = new LivraisonInclut();
+        $livrinclut->setQuantite('10')
+                   ->setProduit($produit)
+                   ->setLivraison($livraison);
+        $manager->persist($livrinclut);   
+        
+//------------------------------------------------------------- Livraison Inclut Fixtures--------------------------------------------------------------------------------
+
+        $facture = new Facturation();
+        $facture->setFactureDate(new DateTimeImmutable('2023-12-8'))
+                ->setFactureAdresse($adresse)
+                ->setFactureCom($commande);
+        $manager->persist($facture);
+
+        $facture = new Facturation();
+        $facture->setFactureDate(new DateTimeImmutable('2024-3-17'))
+                ->setFactureAdresse($adresse)
+                ->setFactureCom($commande);
+        $manager->persist($facture);   
 
 
         $manager->flush();

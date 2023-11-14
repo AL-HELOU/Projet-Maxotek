@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un administrateur{% endblock %}
+
+
+{% block body%}
+
+    <div class="container text-light">
+
+        <h2 class="mt-4 d-flex justify-content-center">Ajout d'un administrateur</h2>
+
+        {{ form_start(form) }}
+            <div class="form-error">
+                {{ form_errors(form) }}
+            </div>
+
+             <div class="form-group">
+                {{ form_label(form.admin_nom) }}
+                {{ form_widget(form.admin_nom) }}
+                <div class="form-error">
+                    {{ form_errors(form.admin_nom) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.admin_prenom) }}
+                {{ form_widget(form.admin_prenom) }}
+                <div class="form-error">
+                    {{ form_errors(form.admin_prenom) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                <div class="form-error">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password) }}
+                <div class="form-error">
+                    {{ form_errors(form.password) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.roles) }}
+                {{ form_widget(form.roles) }}
+                <div class="form-error">
+                    {{ form_errors(form.roles) }}
+                </div>
+            </div>
+
+            <div class="form-group d-flex justify-content-center mt-5">
+                {{ form_row(form.save) }}
+                <div class="d-flex justify-content-center mt-3 ms-5 mb-5"><a href="{{ path('administrateur')}}" class="btn btn-secondary">Retour</a></div>
+            </div>
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

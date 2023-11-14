@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\AdministrateurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AdministrateurRepository::class)]
+#[UniqueEntity(fields:"email", message:"{{ value }} est déjà utilisé !")]
 class Administrateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -48,9 +50,6 @@ class Administrateur implements UserInterface, PasswordAuthenticatedUserInterfac
      * @var string The hashed password
      */
     #[ORM\Column]
-    #[Assert\NotBlank(
-        message: 'Cette valeur ne doit pas être vide.',
-    )]
     private ?string $password = null;
 
     #[ORM\Column]

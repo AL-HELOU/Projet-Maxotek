@@ -327,7 +327,7 @@ class AppFixtures extends Fixture
         $admin->setAdminNom('ALHELOU')
               ->setAdminPrenom('Muhannad')
               ->setEmail('alheloumuhannad@afpa.fr')
-              ->setPassword('password')
+              ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
               ->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
 
@@ -335,7 +335,7 @@ class AppFixtures extends Fixture
         $admin->setAdminNom('Zoe')
               ->setAdminPrenom('Lindsay')
               ->setEmail('a.purus@aol.org')
-              ->setPassword('password')
+              ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
               ->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
 
@@ -371,7 +371,7 @@ class AppFixtures extends Fixture
              ->setUserPrenom('Freeman')
              ->setUserSexe('f')
              ->setEmail('augue.scelerisque.mollis@aol.ca')
-             ->setPassword('password')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
              ->setUserTel('08 81 13 28 73')
              ->setUserType('Particulier')
              ->setUserAdresse($adresse)
@@ -385,7 +385,7 @@ class AppFixtures extends Fixture
              ->setUserPrenom('Meyers')
              ->setUserSexe('f')
              ->setEmail('risus.a@hotmail.ca')
-             ->setPassword('password')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
              ->setUserTel('08 81 22 28 73')
              ->setUserType('Professionnel')
              ->setUserAdresse($adresse)
@@ -399,7 +399,7 @@ class AppFixtures extends Fixture
              ->setUserPrenom('Alhelou')
              ->setUserSexe('h')
              ->setEmail('alheloumuhannad@afpa.fr')
-             ->setPassword('password')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
              ->setUserTel('08 81 55 99 73')
              ->setUserType('Professionnel')
              ->setUserAdresse($adresse)

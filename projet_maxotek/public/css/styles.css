@@ -1,0 +1,13 @@
+body{
+    font-style: italic;
+    background-image: url("../imgs/background.jpg");
+    font-weight: bold;
+}
+
+
+/*pagination background and text color*/
+.pagination > li > a
+{
+    background-color: rgba(22, 22, 22, 0.76);
+    color: #fafafa;
+}

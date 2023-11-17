@@ -22,8 +22,12 @@ class Fournisseur
         message: 'Cette valeur ne doit pas être vide.',
     )]
     #[Assert\Length(min:2, max:50,
-        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
-        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+        minMessage: 'Le Nom doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le Nom ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
     )]
     private ?string $fournis_nom = null;
 
@@ -32,8 +36,12 @@ class Fournisseur
         message: 'Cette valeur ne doit pas être vide.',
     )]
     #[Assert\Length(min:2, max:50,
-        minMessage: 'Votre Numéro de téléphone doit comporter au moins {{ 8 }} caractères',
-        maxMessage: 'Votre Numéro de téléphone ne peut pas contenir plus de {{ 15 }} caractères',
+        minMessage: 'Le Numéro de téléphone doit comporter au moins {{ 8 }} chiffres',
+        maxMessage: 'Le Numéro de téléphone ne peut pas contenir plus de {{ 15 }} chiffres',
+    )]
+    #[Assert\Type(
+        type: 'integer',
+        message: 'Le numéro du téléphone doit  être composée de (entre 8 et 15 chiffres.)',
     )]
     private ?string $fournis_tel = null;
 

@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Maxotek-Administrateurs{% endblock %}
+{% block title %}Maxotek-Utilisateurs{% endblock %}
 
 {% block body %}
 <div class="container-fluid mt-4">
 
-       {% if not Administrateurs.items is same as ([]) %}
-            <h2 class="d-flex justify-content-center text-light">Les Administrateurs</h2>
+       {% if not Users.items is same as ([]) %}
+            <h2 class="d-flex justify-content-center text-light">Les Utilisateurs</h2>
 
           {# read and display just one flash message type #} 
             {% for message in app.flashes('Succes') %}
@@ -16,11 +16,11 @@
             {% endfor %}
 
             <div class="count d-flex justify-content-center text-light">
-                Il y a ({{ Administrateurs.getTotalItemCount }}) Administrateurs au total
+                Il y a ({{ Users.getTotalItemCount }}) Utilisateurs au total
             </div>
         
 
-            <div class="d-flex justify-content-center mt-4"><a href="{{ path('administrateur.new')}}" class="btn btn-success">Ajouter un Administrateur</a></div>
+            <div class="d-flex justify-content-center mt-4"><a href="{{ path('user.new')}}" class="btn btn-success">Ajouter un Utilisateurs</a></div>
 
             <div class="table-responsive">
                 <table class="table table-dark table-striped table-hover mt-4">
@@ -30,26 +30,38 @@
                             <th scope="col" class="p-3">NOM</th>
                             <th scope="col" class="p-3">Prenom</th>
                             <th scope="col" class="p-3">Email</th>
+                            <th scope="col" class="p-3">Genre</th>
+                            <th scope="col" class="p-3">Téléphone</th>
+                            <th scope="col" class="p-3">Adresse</th>
+                            <th scope="col" class="p-3">Pays</th>
+                            <th scope="col" class="p-3">Commercial</th>
+                            <th scope="col" class="p-3">Type</th>
                             <th scope="col" class="p-3">Edition</th>
                             <th scope="col" class="p-3">Suppresion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for Administrateur in Administrateurs %}
+                        {% for User in Users %}
                             <tr>
-                                <th scope="row">{{ Administrateur.Id }}</th>
-                                <td>{{ Administrateur.AdminNom }}</td>
-                                <td>{{ Administrateur.AdminPrenom }}</td>
-                                <td>{{ Administrateur.Email }}</td>
+                                <th scope="row">{{ User.Id }}</th>
+                                <td>{{ User.UserNom }}</td>
+                                <td>{{ User.UserPrenom }}</td>
+                                <td>{{ User.Email }}</td>
+                                <td>{{ User.UserSexe }}</td>
+                                <td>{{ User.UserTel }}</td>
+                                <td>{{ User.UserAdresse.Adresse }} / {{ User.UserAdresse.AdresseVille }} / {{ User.UserAdresse.AdresseCp }}</td>
+                                <td>{{ User.UserPays.PaysNom }}</td>
+                                <td>{{ User.UserCommerc.CommercNom}}</td>
+                                <td>{{ User.UserType}}</td>
                                 
-                                <td>
+                               {#} <td>
                                     <a href="{{ path('administrateur.edit', {id: Administrateur.id}) }}" class="btn btn-outline-info">Modifier</a>
                                 </td>
                                <td>
                                     <form method="GET" action="{{ path('Administrateur.delete', {id: Administrateur.id}) }}" onsubmit = "return submitformdeleteadmin(this);">
                                     <button type="submit" class="btn btn-outline-warning">Supprimer</button>
                                     </form>
-                                </td>
+                                </td>#}
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -60,7 +72,7 @@
 
             {# display navigation #}
             <div class="navigation d-flex justify-content-center mt-4 mb-4">
-                {{ knp_pagination_render(Administrateurs) }}
+                {{ knp_pagination_render(Users) }}
             </div>
         {% else %}  
             <h4 class = "text-light">Il n'y a pas des Administrateurs !</h4>

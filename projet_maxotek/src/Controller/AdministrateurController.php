@@ -80,6 +80,14 @@ class AdministrateurController extends AbstractController
     }
 
 
+    /**
+     * Ce 'controller' affiche un formulaire pour modifier un administrateur
+     *
+     * @param administrateur $administrateur
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
     #[Route('/administrateur/edition/{id}', 'administrateur.edit', methods: ['GET', 'POST'])]
     public function edit(
         administrateur $administrateur,
@@ -119,5 +127,31 @@ class AdministrateurController extends AbstractController
                 'form' => $form->createView(),
                 'userid' => $administrateur->getId()
             ]);
+        }
+
+
+    /**
+     * Ce 'controller' affiche un formulaire pour supprimer un administrateur
+     *
+     * @param EntityManagerInterface $manager
+     * @param Administrateur $administrateur
+     * @return Response
+     */
+    #[Route('/administrateur/suppression/{id}', 'Administrateur.delete', methods: ['GET'])]
+    public function delete(
+        EntityManagerInterface $manager,
+        Administrateur $administrateur
+    ) : Response 
+        {
+
+            $manager->remove($administrateur);
+            $manager->flush();
+
+            $this->addFlash(
+                'Succes',
+                'L\'administrateur a été supprimé avec succes'
+            );
+
+            return $this->redirectToRoute('administrateur');
         }
 }

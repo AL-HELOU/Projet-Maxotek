@@ -9,9 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields:"email", message:"{{ value }} est déjà utilisé !")]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -45,6 +48,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $user_nom = null;
 
     #[ORM\Column(length: 50)]
@@ -55,9 +62,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         minMessage: 'Votre Prenom doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Votre Prenom ne peut pas contenir plus de {{ 50 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $user_prenom = null;
 
     #[ORM\Column(length: 1)]
+    #[Assert\Choice(['h', 'f', 'H', 'F'])]
     private ?string $user_sexe = null;
 
     #[ORM\Column(length: 20)]
@@ -67,6 +79,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Length(min:2, max:50,
         minMessage: 'Votre Numéro de téléphone doit comporter au moins {{ 8 }} caractères',
         maxMessage: 'Votre Numéro de téléphone ne peut pas contenir plus de {{ 15 }} caractères',
+    )]
+    #[Assert\Type(
+        type: 'integer',
+        message: 'Le numéro du téléphone doit  être composée de (entre 8 et 15 chiffres.)',
     )]
     private ?string $user_tel = null;
 

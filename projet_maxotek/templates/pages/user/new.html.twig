@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un utilisateur{% endblock %}
+
+
+{% block body%}
+
+    <div class="container text-light">
+
+        <h2 class="mt-4 d-flex justify-content-center">Ajout d'un utilisateur</h2>
+
+        {{ form_start(form) }}
+            <div class="form-error">
+                {{ form_errors(form) }}
+            </div>
+
+             <div class="form-group">
+                {{ form_label(form.user_nom) }}
+                {{ form_widget(form.user_nom) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_nom) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.user_prenom) }}
+                {{ form_widget(form.user_prenom) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_prenom) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                <div class="form-error">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password) }}
+                <div class="form-error">
+                    {{ form_errors(form.password) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.user_tel) }}
+                {{ form_widget(form.user_tel) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_tel) }}
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                {{ form_label(form.user_adresse) }}
+                {{ form_widget(form.user_adresse) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_adresse) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.user_adresseville) }}
+                {{ form_widget(form.user_adresseville) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_adresseville) }}
+                </div>
+            </div>
+
+             <div class="form-group">
+                {{ form_label(form.user_adressecp) }}
+                {{ form_widget(form.user_adressecp) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_adressecp) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.user_sexe) }}
+                {{ form_widget(form.user_sexe) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_sexe) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.user_type) }}
+                {{ form_widget(form.user_type) }}
+                <div class="form-error">
+                    {{ form_errors(form.user_type) }}
+                </div>
+            </div>
+
+
+            <div class="form-group d-flex justify-content-center mt-5">
+                {{ form_row(form.save) }}
+                <div class="d-flex justify-content-center mt-3 ms-5 mb-5"><a href="{{ path('user')}}" class="btn btn-secondary">Retour</a></div>
+            </div>
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

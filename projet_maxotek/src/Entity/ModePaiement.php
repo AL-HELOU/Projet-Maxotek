@@ -23,6 +23,10 @@ class ModePaiement
         minMessage: 'Le libelle du paiement doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Le libelle du paiement ne peut pas contenir plus de {{ 50 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $paiement_libelle = null;
 
     #[ORM\Column(length: 50)]
@@ -32,6 +36,10 @@ class ModePaiement
     #[Assert\Length(min:2, max:50,
         minMessage: 'Le statut du paiement doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Le statut du paiement ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
     )]
     private ?string $paiement_statut = null;
 

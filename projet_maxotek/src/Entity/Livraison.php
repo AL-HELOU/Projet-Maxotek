@@ -32,6 +32,10 @@ class Livraison
         minMessage: 'Le Nom du livreur doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Le Nom du livreur ne peut pas contenir plus de {{ 50 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $livraison_livreur = null;
 
     #[ORM\ManyToOne(inversedBy: 'livraisons')]

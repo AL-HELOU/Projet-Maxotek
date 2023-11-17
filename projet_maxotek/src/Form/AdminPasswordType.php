@@ -17,7 +17,7 @@ class AdminPasswordType extends AbstractType
 
         ->add('plainPassword', PasswordType::class, [
             'attr' => ['class' => 'form-control'],
-            'label' => 'Votre mot de passe',
+            'label' => 'Mot de passe actuel',
             'label_attr' => ['class' => 'form-label mt-4 d-flex justify-content-center'],
             'constraints' => [new Assert\NotBlank()]
         ])
@@ -33,7 +33,11 @@ class AdminPasswordType extends AbstractType
                 'label' => 'Nouveau mot de passe :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
-                ]
+                ],
+                'constraints' => [new Assert\Regex(
+                    pattern: "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/",
+                    message: 'Le mot de passe doit contenir au moins 8 caractères (Au moins une majuscule, une minuscule et un chiffre)',
+                )]
             ],
 
             'second_options' => [

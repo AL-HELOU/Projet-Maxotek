@@ -2,25 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Administrateur;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-class AdministrateurType extends AbstractType
+
+
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
 
-            ->add('admin_nom', TextType::class,[
+ 
+
+            ->add('user_nom', TextType::class,[
                 'attr' => [
                     'class' => 'form-control',
                     'minlength' => '2',
@@ -33,7 +37,7 @@ class AdministrateurType extends AbstractType
             ])
 
 
-            ->add('admin_prenom', TextType::class,[
+            ->add('user_prenom', TextType::class,[
                 'attr' => [
                     'class' => 'form-control',
                     'minlength' => '2',
@@ -55,13 +59,18 @@ class AdministrateurType extends AbstractType
                 'label' => 'E-mail :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
-                ]
+                ],
+                'constraints' => [
+                    new Assert\Email(),
+                    new Assert\Unique([
+                        'fields' => 'email',
+                        'message' =>"{{ value }} est déjà utilisé !"
+                ]),
+                ],
             ])
 
 
             ->add('password', PasswordType::class, [
-                'hash_property_path' => 'password',
-                'mapped' => false,
                 'attr' => [
                     'class' => 'form-control',
                 ],
@@ -76,9 +85,53 @@ class AdministrateurType extends AbstractType
             ])
 
 
-            ->add('roles' ,  ChoiceType::class, [
+            ->add('user_tel', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                    'minlength' => '8',
+                    'maxlength' => '15'
+                ],
+                'label' => 'Télephone :',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ]
+            ])
+
+            ->add('user_adresse', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Adresse :',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ]
+            ])
+
+
+            ->add('user_adresseville', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Ville :',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ]
+            ])
+
+            ->add('user_adressecp', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label' => 'Code postal :',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ]
+            ])
+
+
+            ->add('user_sexe',  ChoiceType::class, [
                 'attr' => ['class' => 'form-select form-select-lg mb-5'],
-                'label' => 'Sélectionner le rôle: ',
+                'label' => 'Sélectionner le genre: ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
                 ],
@@ -88,10 +141,28 @@ class AdministrateurType extends AbstractType
                 'multiple' => false,
                 'expanded' => false,
                 'choices'  => [
-                    'Administrateur' => 'ROLE_ADMIN',
-                    'Gestionnaire' => 'ROLE_GESTION',
+                    'Homme' => 'H',
+                    'Femme' => 'F',
                 ],
             ])
+
+            ->add('user_type',  ChoiceType::class, [
+                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'label' => 'Sélectionner le type: ',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+                'placeholder' => false,
+
+                'required' => true,
+                'multiple' => false,
+                'expanded' => false,
+                'choices'  => [
+                    'Particulier' => 'Particulier',
+                    'Professionnel' => 'Professionnel',
+                ],
+            ])
+
 
 
             
@@ -101,27 +172,14 @@ class AdministrateurType extends AbstractType
                 ],
                 'label' => 'Ajouter',
             ]);
-
-
-        // Data transformer
-        $builder->get('roles')
-        ->addModelTransformer(new CallbackTransformer(
-            function ($rolesArray) {
-                 // transform the array to a string
-                 return count($rolesArray)? $rolesArray[0]: null;
-            },
-            function ($rolesString) {
-                 // transform the string back to an array
-                 return [$rolesString];
-            }
-        ));
         
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Administrateur::class,
+            //'data_class' => User::class,
         ]);
     }
 }

@@ -26,6 +26,10 @@ class Categorie
         minMessage: 'Le libelle de la categorie doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Le libelle de la categorie ne peut pas contenir plus de {{ 255 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]+$/u",
+        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres).',
+    )]
     private ?string $categ_libelle = null;
 
     #[ORM\Column(type: Types::BLOB)]

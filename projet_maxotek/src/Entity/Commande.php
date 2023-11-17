@@ -32,6 +32,10 @@ class Commande
         minMessage: 'Le statut de la commande doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Le statut de la commande ne peut pas contenir plus de {{ 50 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $com_statut = null;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
@@ -42,6 +46,10 @@ class Commande
     #[Assert\Length(min:2, max:50,
         minMessage: 'L\'adresse doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'L\'adresse ne peut pas contenir plus de {{ 50 }} caractères',
+    )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
     )]
     private ?Adresse $com_adresse = null;
 

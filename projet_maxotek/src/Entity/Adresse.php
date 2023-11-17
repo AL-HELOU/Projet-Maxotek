@@ -22,11 +22,16 @@ class Adresse
     #[Assert\NotBlank(
         message: 'Cette valeur ne doit pas être vide.',
     )]
-    #[Assert\Length(min:2, max:50,
-        minMessage: 'Votre adresse doit comporter au moins {{ 2 }} caractères',
+    #[Assert\Length(min:5, max:255,
+        minMessage: 'Votre adresse doit comporter au moins {{ 5 }} caractères',
         maxMessage: 'Votre adresse ne peut pas contenir plus de {{ 255 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $adresse = null;
+
 
     #[ORM\Column(length: 50)]
     #[Assert\NotBlank(
@@ -36,15 +41,24 @@ class Adresse
         minMessage: 'Votre ville doit comporter au moins {{ 2 }} caractères',
         maxMessage: 'Votre ville ne peut pas contenir plus de {{ 50 }} caractères',
     )]
+    #[Assert\Regex(
+        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+    )]
     private ?string $adresse_ville = null;
+
 
     #[ORM\Column(length: 5)]
     #[Assert\NotBlank(
         message: 'Cette valeur ne doit pas être vide.',
     )]
     #[Assert\Length(min:5, max:5,
-        minMessage: 'Votre code postal doit comporter {{ 5 }} caractères',
-        maxMessage: 'Votre code postal doit comporter {{ 5 }} caractères',
+        minMessage: 'Votre code postal doit comporter {{ 5 }} chiffres',
+        maxMessage: 'Votre code postal doit comporter {{ 5 }} chiffres',
+    )]
+    #[Assert\Type(
+        type: 'integer',
+        message: 'La valeur du code postal doit être composée de 5 chiffres.',
     )]
     private ?string $adresse_cp = null;
 

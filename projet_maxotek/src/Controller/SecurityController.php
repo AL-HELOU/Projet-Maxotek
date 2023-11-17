@@ -86,7 +86,7 @@ class SecurityController extends AbstractController
     }
 
 
-    /**
+        /**
          * This function allow us to modify the user password
          *
          * @param administrateur $administrateur
@@ -95,7 +95,7 @@ class SecurityController extends AbstractController
          * @param EntityManagerInterface $manager
          * @return Response
          */
-      /*  #[Security("is_granted('ROLE_USER') and user === administrateur || is_granted('ROLE_ADMIN')")]/*/
+        /*#[Security("is_granted('ROLE_USER') and user === administrateur || is_granted('ROLE_ADMIN')")]/*/
         #[Route('/administrateur/edition-mot-de-passe/{id}', 'edit.password', methods:['GET', 'POST'])]
         public function editPassword(
             Administrateur $administrateur,

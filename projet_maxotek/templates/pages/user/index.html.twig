@@ -54,14 +54,14 @@
                                 <td>{{ User.UserCommerc.CommercNom}}</td>
                                 <td>{{ User.UserType}}</td>
                                 
-                               {#} <td>
-                                    <a href="{{ path('administrateur.edit', {id: Administrateur.id}) }}" class="btn btn-outline-info">Modifier</a>
+                                <td>
+                                    <a href="{{ path('user.edit', {id: User.id}) }}" class="btn btn-outline-info">Modifier</a>
                                 </td>
                                <td>
-                                    <form method="GET" action="{{ path('Administrateur.delete', {id: Administrateur.id}) }}" onsubmit = "return submitformdeleteadmin(this);">
+                                    <form method="GET" action="{{ path('user.delete', {id: User.id}) }}" onsubmit = "return submitformdeleteuser(this);">
                                     <button type="submit" class="btn btn-outline-warning">Supprimer</button>
                                     </form>
-                                </td>#}
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>

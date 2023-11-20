@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajout d'un utilisateur{% endblock %}
+{% block title %}Modification d'un utilisateur{% endblock %}
 
 
 {% block body%}
 
     <div class="container text-light">
 
-        <h2 class="mt-4 d-flex justify-content-center">Ajout d'un utilisateur</h2>
+        <h2 class="mt-4 d-flex justify-content-center">Modification d'un utilisateur</h2>
+
+        {# read and display just one flash message type #} 
+        {% for message in app.flashes('Succes') %}
+            <div class="alert alert-success mt-4 d-flex justify-content-center">
+                {{ message }}
+            </div>
+        {% endfor %}
 
         {{ form_start(form) }}
             <div class="form-error">
@@ -39,14 +46,6 @@
             </div>
 
             <div class="form-group">
-                {{ form_label(form.password) }}
-                {{ form_widget(form.password) }}
-                <div class="form-error">
-                    {{ form_errors(form.password) }}
-                </div>
-            </div>
-
-            <div class="form-group">
                 {{ form_label(form.user_tel) }}
                 {{ form_widget(form.user_tel) }}
                 <div class="form-error">
@@ -56,10 +55,10 @@
 
 
             <div class="form-group">
-                {{ form_label(form.user_adresse) }}
-                {{ form_widget(form.user_adresse) }}
+                {{ form_label(form.user_adress) }}
+                {{ form_widget(form.user_adress) }}
                 <div class="form-error">
-                    {{ form_errors(form.user_adresse) }}
+                    {{ form_errors(form.user_adress) }}
                 </div>
             </div>
 

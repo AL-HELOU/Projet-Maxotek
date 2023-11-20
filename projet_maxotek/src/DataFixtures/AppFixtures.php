@@ -250,17 +250,28 @@ class AppFixtures extends Fixture
 
         $pays = new Pays();
         $pays->setPaysNom('France');
+
         $pays = new Pays();
         $pays->setPaysNom('Sweden');
         $manager->persist($pays);
+
+        $pays = new Pays();
         $pays->setPaysNom('Canada');
         $manager->persist($pays);
+
+        $pays = new Pays();
         $pays->setPaysNom('United Kingdom');
         $manager->persist($pays);
+
+        $pays = new Pays();
         $pays->setPaysNom('Norway');
         $manager->persist($pays);
+
+        $pays = new Pays();
         $pays->setPaysNom('Ukraine');
         $manager->persist($pays);
+
+        $pays = new Pays();
         $pays->setPaysNom('Allemenge');
         $manager->persist($pays);
 

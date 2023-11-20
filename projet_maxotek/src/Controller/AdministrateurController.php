@@ -131,7 +131,7 @@ class AdministrateurController extends AbstractController
 
 
     /**
-     * Ce 'controller' affiche un formulaire pour supprimer un administrateur
+     * Ce 'controller' supprime un administrateur
      *
      * @param EntityManagerInterface $manager
      * @param Administrateur $administrateur

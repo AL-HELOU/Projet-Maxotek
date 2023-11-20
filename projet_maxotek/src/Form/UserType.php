@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\Commercial;
+use App\Entity\Pays;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -12,17 +14,12 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
-
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
- 
 
             ->add('user_nom', TextType::class,[
                 'attr' => [
@@ -62,10 +59,6 @@ class UserType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\Email(),
-                    new Assert\Unique([
-                        'fields' => 'email',
-                        'message' =>"{{ value }} est déjà utilisé !"
-                ]),
                 ],
             ])
 
@@ -131,28 +124,28 @@ class UserType extends AbstractType
 
             ->add('user_sexe',  ChoiceType::class, [
                 'attr' => ['class' => 'form-select form-select-lg mb-5'],
-                'label' => 'Sélectionner le genre: ',
+                'label' => 'Sélectionner le genre : ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
                 ],
-                'placeholder' => false,
+                'placeholder' => 'Sélectionner le genre',
 
                 'required' => true,
                 'multiple' => false,
                 'expanded' => false,
                 'choices'  => [
-                    'Homme' => 'H',
-                    'Femme' => 'F',
+                    'Homme' => 'h',
+                    'Femme' => 'f',
                 ],
             ])
 
             ->add('user_type',  ChoiceType::class, [
                 'attr' => ['class' => 'form-select form-select-lg mb-5'],
-                'label' => 'Sélectionner le type: ',
+                'label' => 'Sélectionner le type : ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
                 ],
-                'placeholder' => false,
+                'placeholder' => 'Sélectionner le type',
 
                 'required' => true,
                 'multiple' => false,
@@ -163,7 +156,31 @@ class UserType extends AbstractType
                 ],
             ])
 
-
+            ->add('user_pays', EntityType::class, [
+                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'class' => Pays::class,
+                'label' => 'Sélectionner le pays :',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+            
+                'choice_label' => 'pays_nom',
+                'placeholder' => 'Sélectionner le pays',
+                'choice_attr' => ['class' => 'justify-content-center'],
+            ])
+            
+            ->add('user_commerc', EntityType::class, [
+                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'class' => Commercial::class,
+                'label' => 'Sélectionner le commercial :',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+            
+                'choice_label' => 'commerc_nom',
+                'placeholder' => 'Sélectionner le commercial',
+                'choice_attr' => ['class' => 'justify-content-center'],
+            ])
 
             
             ->add('save', SubmitType::class, [

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Administrateur;
+use App\Entity\User;
 use App\Form\AdminPasswordType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -116,7 +117,7 @@ class SecurityController extends AbstractController
 
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()) {
-                    if ($hasher->isPasswordValid($administrateur, $form->getData()['plainPassword'])) {
+                
                         $administrateur->setPassword($hasher->hashPassword(
                             $administrateur,
                             $form->getData()['newPassword']
@@ -131,17 +132,59 @@ class SecurityController extends AbstractController
                         $manager->flush();
 
                         return $this->redirectToRoute('administrateur.edit', ['id' => $administrateur->getId()]);
-                    }else{
-                        $this->addFlash(
-                            'warning',
-                            'Le mot de passe renseigné est incorrect.'
-                        );
+                    
                     }
-                }
+                
 
-                return $this->render('pages/security/edit_password.html.twig', [
+                return $this->render('pages/security/admin_edit_password.html.twig', [
                     'form' => $form->createView(),
                     'id' => $administrateur->getId()
+                ]);
+            }
+
+
+        #[Route('/administrateur/edition-utilisateur-mot-de-passe/{id}', 'edituser.password', methods:['GET', 'POST'])]
+        public function edituserPassword(
+            User $user,
+            Request $request,
+            UserPasswordHasherInterface $hasher,
+            EntityManagerInterface $manager
+        ) : Response
+            {
+                /*if(!$this->getUser()) {
+                    return $this->redirectToRoute('security.login');
+                }
+
+                if($this->getUser() !== $administrateur && !$this->isGranted('ROLE_ADMIN')){
+                    return $this->redirectToRoute('app_home');
+                }
+*/
+                $form = $this->createForm(AdminPasswordType::class);
+
+                $form->handleRequest($request);
+                if ($form->isSubmitted() && $form->isValid()) {
+                
+                        $user->setPassword($hasher->hashPassword(
+                            $user,
+                            $form->getData()['newPassword']
+                        ));
+
+                        $this->addFlash(
+                            'Succes',
+                            'Le mot de passe a été modifié avec succes.'
+                        );
+
+                        $manager->persist($user);
+                        $manager->flush();
+
+                        return $this->redirectToRoute('user.edit', ['id' => $user->getId()]);
+                    
+                    }
+                
+
+                return $this->render('pages/security/admin_edituser_password.html.twig', [
+                    'form' => $form->createView(),
+                    'id' => $user->getId()
                 ]);
             }
 

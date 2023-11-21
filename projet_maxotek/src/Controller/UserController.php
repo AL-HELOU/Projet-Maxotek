@@ -3,12 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Adresse;
-use App\Entity\Commercial;
-use App\Entity\Pays;
 use App\Entity\User;
 use App\Form\UserEditType;
 use App\Form\UserType;
-use App\Repository\AdresseRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -16,6 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 
 class UserController extends AbstractController
@@ -40,6 +39,7 @@ class UserController extends AbstractController
     #[Route('/user/nouveau', 'user.new', methods:['GET', 'POST'])]
     public function new(
         Request $request,
+        UserPasswordHasherInterface $hasher,
         EntityManagerInterface $manager
     ) : Response
     {
@@ -74,8 +74,10 @@ class UserController extends AbstractController
             $useremail = $data["email"];
             $user->setEmail($useremail);
 
-            $password = $data["password"];
-            $user->setPassword($password);
+            $user->setPassword($hasher->hashPassword(
+                $user,
+                $form->getData()['password']
+            ));
 
             $usertel = $data["user_tel"];
             $user->setUserTel($usertel);
@@ -195,7 +197,7 @@ class UserController extends AbstractController
  
         return $this->render('pages/user/edit.html.twig', [
             'form' => $form->createView(),
-            'id' => $user->getId(),
+            'userid' => $user->getId(),
         ]);
     }
 

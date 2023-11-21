@@ -15,14 +15,6 @@ class AdminPasswordType extends AbstractType
     {
         $builder
 
-        ->add('plainPassword', PasswordType::class, [
-            'attr' => ['class' => 'form-control'],
-            'label' => 'Mot de passe actuel',
-            'label_attr' => ['class' => 'form-label mt-4 d-flex justify-content-center'],
-            'constraints' => [new Assert\NotBlank()]
-        ])
-
-
 
         ->add('newPassword', RepeatedType::class, [
             'type' => PasswordType::class,

@@ -58,7 +58,7 @@ class AdministrateurEditType extends AbstractType
 
 
             ->add('roles' ,  ChoiceType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'label' => 'Sélectionner le rôle: ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'

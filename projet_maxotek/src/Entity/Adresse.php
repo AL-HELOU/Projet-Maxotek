@@ -38,8 +38,8 @@ class Adresse
         message: 'Cette valeur ne doit pas être vide.',
     )]
     #[Assert\Length(min:2, max:50,
-        minMessage: 'Votre ville doit comporter au moins {{ 2 }} caractères',
-        maxMessage: 'Votre ville ne peut pas contenir plus de {{ 50 }} caractères',
+        minMessage: 'Le nom de la ville doit comporter au moins {{ 2 }} caractères',
+        maxMessage: 'Le nom de la ville ne peut pas contenir plus de {{ 50 }} caractères',
     )]
     #[Assert\Regex(
         pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
@@ -52,12 +52,8 @@ class Adresse
     #[Assert\NotBlank(
         message: 'Cette valeur ne doit pas être vide.',
     )]
-    #[Assert\Length(min:5, max:5,
-        minMessage: 'Votre code postal doit comporter {{ 5 }} chiffres',
-        maxMessage: 'Votre code postal doit comporter {{ 5 }} chiffres',
-    )]
-    #[Assert\Type(
-        type: 'integer',
+    #[Assert\Regex(
+        pattern: "/^\d{5}$/",
         message: 'La valeur du code postal doit être composée de 5 chiffres.',
     )]
     private ?string $adresse_cp = null;

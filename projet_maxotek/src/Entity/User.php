@@ -39,6 +39,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank(
         message: 'Cette valeur ne doit pas être vide.',
     )]
+    #[Assert\Regex(
+        pattern: "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/",
+        message: 'Le mot de passe doit contenir au moins 8 caractères (Au moins une majuscule, une minuscule et un chiffre)',
+    )]
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
@@ -70,20 +74,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $user_prenom = null;
 
     #[ORM\Column(length: 1)]
-    #[Assert\Choice(['h', 'f', 'H', 'F'])]
+    #[Assert\Choice(['h', 'f'])]
     private ?string $user_sexe = null;
 
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(
         message: 'Cette valeur ne doit pas être vide.',
     )]
-    #[Assert\Length(min:2, max:50,
-        minMessage: 'Votre Numéro de téléphone doit comporter au moins {{ 8 }} caractères',
-        maxMessage: 'Votre Numéro de téléphone ne peut pas contenir plus de {{ 15 }} caractères',
-    )]
-    #[Assert\Type(
-        type: 'integer',
-        message: 'Le numéro du téléphone doit  être composée de (entre 8 et 15 chiffres.)',
+    #[Assert\Regex(
+        pattern: "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+        message: 'Le numéro du téléphone "{{ value }}" n\'est pas un numéro du téléphone valide.',
     )]
     private ?string $user_tel = null;
 

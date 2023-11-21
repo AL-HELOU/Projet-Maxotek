@@ -2,8 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Commercial;
 use App\Entity\Pays;
+use App\Entity\Commercial;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 
 class UserType extends AbstractType
 {
@@ -30,6 +31,19 @@ class UserType extends AbstractType
                 'label' => 'Nom :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(
+                        message: 'Cette valeur ne doit pas être vide.',
+                    ),
+                    new Assert\Length(min:2, max:50,
+                        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
+                        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+                    ),
+                    new Assert\Regex(
+                        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+                        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+                    ),
                 ]
             ])
 
@@ -43,6 +57,19 @@ class UserType extends AbstractType
                 'label' => 'Prenom :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(
+                        message: 'Cette valeur ne doit pas être vide.',
+                    ),
+                    new Assert\Length(min:2, max:50,
+                        minMessage: 'Votre Nom doit comporter au moins {{ 2 }} caractères',
+                        maxMessage: 'Votre Nom ne peut pas contenir plus de {{ 50 }} caractères',
+                    ),
+                    new Assert\Regex(
+                        pattern: "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð][a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+                        message: '-- Format incorrect -- Format accepté : d\'abord au moins une lettre et ensuite (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+                    ),
                 ]
             ])
 
@@ -58,8 +85,11 @@ class UserType extends AbstractType
                     'class' => 'form-label mt-4 d-flex justify-content-center'
                 ],
                 'constraints' => [
-                    new Assert\Email(),
-                ],
+                    new Assert\Email(
+                        message: 'L\'e-mail "{{ value }}" n\'est pas un e-mail valide.',
+                    ),
+                    //new UniqueEntity(['fields' => 'email'])
+                ]
             ])
 
 
@@ -74,7 +104,10 @@ class UserType extends AbstractType
                 'constraints' => [new Assert\Regex(
                     pattern: "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/",
                     message: 'Le mot de passe doit contenir au moins 8 caractères (Au moins une majuscule, une minuscule et un chiffre)',
-                )]
+                ),new Assert\NotBlank(
+                    message: 'Veuillez entrer votre mot de passe pour continuer',
+                )
+                ]
             ])
 
 
@@ -87,6 +120,15 @@ class UserType extends AbstractType
                 'label' => 'Télephone :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(
+                        message: 'Cette valeur ne doit pas être vide.',
+                    ),
+                    new Assert\Regex(
+                        pattern: "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+                        message: 'Le numéro du téléphone "{{ value }}" n\'est pas un numéro du téléphone valide.',
+                    )
                 ]
             ])
 
@@ -97,6 +139,19 @@ class UserType extends AbstractType
                 'label' => 'Adresse :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(
+                        message: 'Cette valeur ne doit pas être vide.',
+                    ),
+                    new Assert\Length(min:5, max:255,
+                        minMessage: 'Votre adresse doit comporter au moins {{ 5 }} caractères',
+                        maxMessage: 'Votre adresse ne peut pas contenir plus de {{ 255 }} caractères',
+                    ),
+                    new Assert\Regex(
+                        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+                        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+                    )
                 ]
             ])
 
@@ -108,6 +163,19 @@ class UserType extends AbstractType
                 'label' => 'Ville :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(
+                        message: 'Cette valeur ne doit pas être vide.',
+                    ),
+                    new Assert\Length(min:5, max:50,
+                        minMessage: 'Le nom de la ville doit comporter au moins {{ 5 }} caractères',
+                        maxMessage: 'Le nom de la ville ne peut pas contenir plus de {{ 50 }} caractères',
+                    ),
+                    new Assert\Regex(
+                        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+                        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
+                    )
                 ]
             ])
 
@@ -118,12 +186,21 @@ class UserType extends AbstractType
                 'label' => 'Code postal :',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
-                ]
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(
+                        message: 'Cette valeur ne doit pas être vide.',
+                    ),
+                    new Assert\Regex(
+                        pattern: "/^\d{5}$/",
+                        message: 'La valeur du code postal doit être composée de 5 chiffres.',
+                    )
+                ] 
             ])
 
 
             ->add('user_sexe',  ChoiceType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'label' => 'Sélectionner le genre : ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
@@ -137,10 +214,13 @@ class UserType extends AbstractType
                     'Homme' => 'h',
                     'Femme' => 'f',
                 ],
+                'constraints' => [
+                    new Assert\Choice(['h', 'f']),
+                ]
             ])
 
             ->add('user_type',  ChoiceType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'label' => 'Sélectionner le type : ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
@@ -154,10 +234,13 @@ class UserType extends AbstractType
                     'Particulier' => 'Particulier',
                     'Professionnel' => 'Professionnel',
                 ],
+                'constraints' => [
+                    new Assert\Choice(['Particulier', 'Professionnel']),
+                ]
             ])
 
             ->add('user_pays', EntityType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'class' => Pays::class,
                 'label' => 'Sélectionner le pays :',
                 'label_attr' => [
@@ -170,7 +253,7 @@ class UserType extends AbstractType
             ])
             
             ->add('user_commerc', EntityType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'class' => Commercial::class,
                 'label' => 'Sélectionner le commercial :',
                 'label_attr' => [

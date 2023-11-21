@@ -11,3 +11,25 @@ body{
     background-color: rgba(22, 22, 22, 0.76);
     color: #fafafa;
 }
+
+
+form-select {
+    border: none;
+    background-color: #bebebeaf;
+    font-weight: bold;
+}
+
+option, input[type=text] , input[type=password], input[type=email], input[type=search], .CrudSelect
+{
+    background-color: #bebebeaf;
+    color: black;
+    font-weight: bold;
+}
+input[type=text]:focus ,input[type=password]:focus, input[type=email]:focus, input[type=search]:focus ,.CrudSelect:focus {
+    background-color: white;
+    border: 3px solid rgba(227, 12, 51, 0.843);
+    font-weight: bold;
+}
+.btn{
+    font-weight: bold;
+}

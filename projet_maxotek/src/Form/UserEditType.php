@@ -75,8 +75,6 @@ class UserEditType extends AbstractType
             ->add('email', EmailType::class,[
                 'attr' => [
                     'class' => 'form-control',
-                    'minlength' => '2',
-                    'maxlength' => '50'
                 ],
                 'label' => 'E-mail :',
                 'label_attr' => [
@@ -85,8 +83,7 @@ class UserEditType extends AbstractType
                 'constraints' => [
                     new Assert\Email(
                         message: 'L\'e-mail "{{ value }}" n\'est pas un e-mail valide.',
-                    ),
-                    new Assert\Unique(fields: ['email'], message:"{{ value }} est déjà utilisé !"),
+                    )
                 ],
             ])
 
@@ -94,8 +91,6 @@ class UserEditType extends AbstractType
             ->add('user_tel', TextType::class,[
                 'attr' => [
                     'class' => 'form-control',
-                    'minlength' => '8',
-                    'maxlength' => '15'
                 ],
                 'label' => 'Télephone :',
                 'label_attr' => [
@@ -105,13 +100,9 @@ class UserEditType extends AbstractType
                     new Assert\NotBlank(
                         message: 'Cette valeur ne doit pas être vide.',
                     ),
-                    new Assert\Length(min:2, max:50,
-                    minMessage: 'Votre Numéro de téléphone doit comporter au moins {{ 8 }} caractères',
-                    maxMessage: 'Votre Numéro de téléphone ne peut pas contenir plus de {{ 15 }} caractères',
-                    ),
-                    new Assert\Type(
-                        type: 'integer',
-                        message: 'Le numéro du téléphone doit  être composée de (entre 8 et 15 chiffres.)',
+                    new Assert\Regex(
+                        pattern: "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+                        message: 'Le numéro du téléphone "{{ value }}" n\'est pas un numéro du téléphone valide.',
                     )
                 ]
             ])
@@ -153,8 +144,8 @@ class UserEditType extends AbstractType
                         message: 'Cette valeur ne doit pas être vide.',
                     ),
                     new Assert\Length(min:5, max:50,
-                        minMessage: 'Votre adresse doit comporter au moins {{ 5 }} caractères',
-                        maxMessage: 'Votre adresse ne peut pas contenir plus de {{ 50 }} caractères',
+                        minMessage: 'Le nom de la ville doit comporter au moins {{ 5 }} caractères',
+                        maxMessage: 'Le nom de la ville ne peut pas contenir plus de {{ 50 }} caractères',
                     ),
                     new Assert\Regex(
                         pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
@@ -175,12 +166,8 @@ class UserEditType extends AbstractType
                     new Assert\NotBlank(
                         message: 'Cette valeur ne doit pas être vide.',
                     ),
-                    new Assert\Length(min:5, max:5,
-                        minMessage: 'Votre code postal doit comporter {{ 5 }} chiffres',
-                        maxMessage: 'Votre code postal doit comporter {{ 5 }} chiffres',
-                    ),
-                    new Assert\Type(
-                        type: 'integer',
+                    new Assert\Regex(
+                        pattern: "/^\d{5}$/",
                         message: 'La valeur du code postal doit être composée de 5 chiffres.',
                     )
                 ]    
@@ -188,7 +175,7 @@ class UserEditType extends AbstractType
 
 
             ->add('user_sexe',  ChoiceType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'label' => 'Sélectionner le genre : ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
@@ -203,12 +190,12 @@ class UserEditType extends AbstractType
                     'Femme' => 'f',
                 ],
                 'constraints' => [
-                    new Assert\Choice(['h', 'f', 'H', 'F']),
+                    new Assert\Choice(['h', 'f']),
                 ]
             ])
 
             ->add('user_type',  ChoiceType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'label' => 'Sélectionner le type : ',
                 'label_attr' => [
                     'class' => 'form-label mt-4 d-flex justify-content-center'
@@ -222,10 +209,13 @@ class UserEditType extends AbstractType
                     'Particulier' => 'Particulier',
                     'Professionnel' => 'Professionnel',
                 ],
+                'constraints' => [
+                    new Assert\Choice(['Particulier', 'Professionnel']),
+                ]
             ])
 
             ->add('user_pays', EntityType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'class' => Pays::class,
                 'label' => 'Sélectionner le pays :',
                 'label_attr' => [
@@ -238,7 +228,7 @@ class UserEditType extends AbstractType
             ])
             
             ->add('user_commerc', EntityType::class, [
-                'attr' => ['class' => 'form-select form-select-lg mb-5'],
+                'attr' => ['class' => 'form-select form-select-lg mb-5 CrudSelect'],
                 'class' => Commercial::class,
                 'label' => 'Sélectionner le commercial :',
                 'label_attr' => [

@@ -151,129 +151,35 @@ class AppFixtures extends Fixture
 //-------------------------------------------------------------FIN Categories Fixtures--------------------------------------------------------------------------------
 
 
-//------------------------------------------------------------- adresses Fixtures--------------------------------------------------------------------------------
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('P.O. Box 422, 2880 Ullamcorper Rd')
-                ->setAdresseVille('Burhaniye')
-                ->setAdresseCp(91262);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('137-1063 Ligula Street')
-                ->setAdresseVille('Kahramanmaraş')
-                ->setAdresseCp(63383);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('130-5027 Donec Street')
-                ->setAdresseVille('Chortkiv')
-                ->setAdresseCp(80949);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('1857 Tincidunt Ave')
-                ->setAdresseVille('Seshego')
-                ->setAdresseCp(20339);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('Ap 448-6052 Commodo Street')
-                ->setAdresseVille('Arendal')
-                ->setAdresseCp(87106);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('P.O. Box 952, 564 Ornare')
-                ->setAdresseVille('Galway')
-                ->setAdresseCp(13446);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('1181 Integer Ave')
-                ->setAdresseVille('Los Patios')
-                ->setAdresseCp(16372);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('P.O. Box 422, 2880 Ullamcorper Rd')
-                ->setAdresseVille('Burhaniye')
-                ->setAdresseCp(91262);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('137-1063 Ligula Street')
-                ->setAdresseVille('Kahramanmaraş')
-                ->setAdresseCp(63383);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('130-5027 Donec Street')
-                ->setAdresseVille('Chortkiv')
-                ->setAdresseCp(80949);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('1857 Tincidunt Ave')
-                ->setAdresseVille('Seshego')
-                ->setAdresseCp(20339);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('Ap 448-6052 Commodo Street')
-                ->setAdresseVille('Arendal')
-                ->setAdresseCp(87106);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('P.O. Box 952, 564 Ornare')
-                ->setAdresseVille('Galway')
-                ->setAdresseCp(13446);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('1181 Integer Ave')
-                ->setAdresseVille('Los Patios')
-                ->setAdresseCp(16372);
-        $manager->persist($adresse);
-
-        $adresse = new Adresse();
-        $adresse->setAdresse('5156 Inceptos St')
-                ->setAdresseVille('Whangarei')
-                ->setAdresseCp(18758);
-        $manager->persist($adresse);
-
-//------------------------------------------------------------- FIN adresses Fixtures--------------------------------------------------------------------------------
-
-
 //------------------------------------------------------------- Pays Fixtures--------------------------------------------------------------------------------
 
         $pays = new Pays();
         $pays->setPaysNom('France');
-
-        $pays = new Pays();
-        $pays->setPaysNom('Sweden');
         $manager->persist($pays);
 
-        $pays = new Pays();
-        $pays->setPaysNom('Canada');
-        $manager->persist($pays);
+        $pays1 = new Pays();
+        $pays1->setPaysNom('Sweden');
+        $manager->persist($pays1);
 
-        $pays = new Pays();
-        $pays->setPaysNom('United Kingdom');
-        $manager->persist($pays);
+        $pays2 = new Pays();
+        $pays2->setPaysNom('Canada');
+        $manager->persist($pays2);
 
-        $pays = new Pays();
-        $pays->setPaysNom('Norway');
-        $manager->persist($pays);
+        $pays3 = new Pays();
+        $pays3->setPaysNom('United Kingdom');
+        $manager->persist($pays3);
 
-        $pays = new Pays();
-        $pays->setPaysNom('Ukraine');
-        $manager->persist($pays);
+        $pays4 = new Pays();
+        $pays4->setPaysNom('Norway');
+        $manager->persist($pays4);
 
-        $pays = new Pays();
-        $pays->setPaysNom('Allemenge');
-        $manager->persist($pays);
+        $pays5 = new Pays();
+        $pays5->setPaysNom('Ukraine');
+        $manager->persist($pays5);
+
+        $pays6 = new Pays();
+        $pays6->setPaysNom('Allemenge');
+        $manager->persist($pays6);
 
 //------------------------------------------------------------- FIN Pays Fixtures--------------------------------------------------------------------------------
 
@@ -283,21 +189,21 @@ class AppFixtures extends Fixture
         $commercial->setCommercNom('Olga Fernandez');
         $manager->persist($commercial);
 
-        $commercial = new Commercial();
-        $commercial->setCommercNom('Lilah Delaney');
-        $manager->persist($commercial);
+        $commercial1 = new Commercial();
+        $commercial1->setCommercNom('Lilah Delaney');
+        $manager->persist($commercial1);
 
-        $commercial = new Commercial();
-        $commercial->setCommercNom('Noble Buckner');
-        $manager->persist($commercial);
+        $commercial2 = new Commercial();
+        $commercial2->setCommercNom('Noble Buckner');
+        $manager->persist($commercial2);
 
-        $commercial = new Commercial();
-        $commercial->setCommercNom('Colton Cruz');
-        $manager->persist($commercial);
+        $commercial3 = new Commercial();
+        $commercial3->setCommercNom('Colton Cruz');
+        $manager->persist($commercial3);
 
-        $commercial = new Commercial();
-        $commercial->setCommercNom('Kiona Barrera');
-        $manager->persist($commercial);
+        $commercial4 = new Commercial();
+        $commercial4->setCommercNom('Kiona Barrera');
+        $manager->persist($commercial4);
 
 //------------------------------------------------------------- FIN Commercial Fixtures--------------------------------------------------------------------------------
 
@@ -353,27 +259,6 @@ class AppFixtures extends Fixture
 //------------------------------------------------------------- FIN Adminstrateur Fixtures--------------------------------------------------------------------------------
 
 
-//------------------------------------------------------------- Fournisseur Fixtures--------------------------------------------------------------------------------
-
-        $fourni = new Fournisseur();
-        $fourni->setFournisNom('Posuere Vulputate Lacus LLP')
-               ->setFournisTel('06 54 36 80 39')
-               ->setFournisEmail('vel.venenatis.vel@google.org')
-               ->setFournisAdresse($adresse)
-               ->setFournisPays($pays);
-        $manager->persist($fourni);
-
-        $fourni = new Fournisseur();
-        $fourni->setFournisNom('AFPA')
-               ->setFournisTel('06 54 36 80 39')
-               ->setFournisEmail('afpa@afpa.fr')
-               ->setFournisAdresse($adresse)
-               ->setFournisPays($pays);
-        $manager->persist($fourni);
-
-//------------------------------------------------------------- FIN Fournisseur Fixtures--------------------------------------------------------------------------------
-
-
 //------------------------------------------------------------- USERS Fixtures--------------------------------------------------------------------------------
 
 
@@ -385,41 +270,327 @@ class AppFixtures extends Fixture
              ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
              ->setUserTel('08 81 13 28 73')
              ->setUserType('Particulier')
-             ->setUserAdresse($adresse)
              ->setUserPays($pays)
              ->setUserCommerc($commercial)
              ->setRoles(["ROLE_USER"]);        
         $manager->persist($user);
 
-        $user = new User();
-        $user->setUserNom('Velma')
+        $user1 = new User();
+        $user1->setUserNom('Elena')
+             ->setUserPrenom('Fmano')
+             ->setUserSexe('f')
+             ->setEmail('scelerisque.mollis@aol.ca')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('08 81 13 28 73')
+             ->setUserType('Particulier')
+             ->setUserPays($pays)
+             ->setUserCommerc($commercial1)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user1);
+
+        $user2 = new User();
+        $user2->setUserNom('Velma')
              ->setUserPrenom('Meyers')
              ->setUserSexe('f')
              ->setEmail('risus.a@hotmail.ca')
              ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
              ->setUserTel('08 81 22 28 73')
              ->setUserType('Professionnel')
-             ->setUserAdresse($adresse)
-             ->setUserPays($pays)
+             ->setUserPays($pays2)
              ->setUserCommerc($commercial)
              ->setRoles(["ROLE_USER"]);        
-        $manager->persist($user);
+        $manager->persist($user2);
 
-        $user = new User();
-        $user->setUserNom('Muhannad')
+        $user3 = new User();
+        $user3->setUserNom('Muhannad')
              ->setUserPrenom('Alhelou')
              ->setUserSexe('h')
              ->setEmail('alheloumuhannad@afpa.fr')
              ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
              ->setUserTel('08 81 55 99 73')
              ->setUserType('Professionnel')
-             ->setUserAdresse($adresse)
+             ->setUserPays($pays3)
+             ->setUserCommerc($commercial2)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user3);
+
+        $user4 = new User();
+        $user4->setUserNom('Munir')
+             ->setUserPrenom('Alselem')
+             ->setUserSexe('h')
+             ->setEmail('alselem@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('08 81 55 99 73')
+             ->setUserType('Particulier')
+             ->setUserPays($pays6)
+             ->setUserCommerc($commercial3)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user4);
+
+        $user5 = new User();
+        $user5->setUserNom('Munisqdr')
+             ->setUserPrenom('alselemanez')
+             ->setUserSexe('h')
+             ->setEmail('alselemanez@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('08 81 55 99 73')
+             ->setUserType('Particulier')
+             ->setUserPays($pays5)
+             ->setUserCommerc($commercial4)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user5);
+
+        $user6 = new User();
+        $user6->setUserNom('Musqdr')
+             ->setUserPrenom('alsem')
+             ->setUserSexe('h')
+             ->setEmail('alsema@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('08 81 55 99 73')
+             ->setUserType('Particulier')
+             ->setUserPays($pays4)
+             ->setUserCommerc($commercial4)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user6);
+
+        $user7 = new User();
+        $user7->setUserNom('vasqdr')
+             ->setUserPrenom('alsemgdf')
+             ->setUserSexe('f')
+             ->setEmail('alsemgdf@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('08 81 55 99 73')
+             ->setUserType('Professionnel')
+             ->setUserPays($pays)
+             ->setUserCommerc($commercial2)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user7);
+
+        $user8 = new User();
+        $user8->setUserNom('saqodr')
+             ->setUserPrenom('alsemgsdf')
+             ->setUserSexe('h')
+             ->setEmail('saqodr@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('+55 08 81 55 99 73')
+             ->setUserType('Professionnel')
+             ->setUserPays($pays1)
+             ->setUserCommerc($commercial2)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user8);
+
+        $user9 = new User();
+        $user9->setUserNom('savodr')
+             ->setUserPrenom('alsemgf')
+             ->setUserSexe('h')
+             ->setEmail('savodr@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('+11 08 81 55 99 73')
+             ->setUserType('Particulier')
+             ->setUserPays($pays2)
+             ->setUserCommerc($commercial3)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user9);
+
+        $user10 = new User();
+        $user10->setUserNom('savasodr')
+             ->setUserPrenom('alsemgf')
+             ->setUserSexe('h')
+             ->setEmail('savasodr@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('+11 08 81 55 99 73')
+             ->setUserType('Particulier')
              ->setUserPays($pays)
              ->setUserCommerc($commercial)
              ->setRoles(["ROLE_USER"]);        
-        $manager->persist($user);
+        $manager->persist($user10);
+
+        $user11 = new User();
+        $user11->setUserNom('vasodr')
+             ->setUserPrenom('alsesqmgf')
+             ->setUserSexe('h')
+             ->setEmail('vasodr@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('+33 08 81 55 99 73')
+             ->setUserType('Particulier')
+             ->setUserPays($pays)
+             ->setUserCommerc($commercial1)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user11);
+
+        $user12 = new User();
+        $user12->setUserNom('valery')
+             ->setUserPrenom('alsesqmgf')
+             ->setUserSexe('f')
+             ->setEmail('valery@afpa.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('+330881559973')
+             ->setUserType('Particulier')
+             ->setUserPays($pays)
+             ->setUserCommerc($commercial4)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user12);
+
+        $user13 = new User();
+        $user13->setUserNom('valerysan')
+             ->setUserPrenom('erysan')
+             ->setUserSexe('f')
+             ->setEmail('erysan@hotmail.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('+440881559973')
+             ->setUserType('Particulier')
+             ->setUserPays($pays6)
+             ->setUserCommerc($commercial2)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user13);
+
+        $user14 = new User();
+        $user14->setUserNom('molerysan')
+             ->setUserPrenom('erysandor')
+             ->setUserSexe('h')
+             ->setEmail('molerysan@gmail.fr')
+             ->setPassword('$2y$13$IISam1.vYMEoxcoXrN3bZ.EGSLMsOPBmvn9PE13TSF/6013fc4y3q')
+             ->setUserTel('0881559973')
+             ->setUserType('Particulier')
+             ->setUserPays($pays)
+             ->setUserCommerc($commercial3)
+             ->setRoles(["ROLE_USER"]);        
+        $manager->persist($user14);
 
 //------------------------------------------------------------- FIN USERS Fixtures--------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------- adresses Fixtures--------------------------------------------------------------------------------
+
+$adresse = new Adresse();
+$adresse->setAdresse('P.O. Box 422, 2880 Ullamcorper Rd')
+        ->setAdresseVille('Burhaniye')
+        ->setAdresseCp(91262)
+        ->setUser($user);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('137-1063 Ligula Street')
+        ->setAdresseVille('Kahramanmaraş')
+        ->setAdresseCp(63383)
+        ->setUser($user1);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('130-5027 Donec Street')
+        ->setAdresseVille('Chortkiv')
+        ->setAdresseCp(80949)
+        ->setUser($user2);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('1857 Tincidunt Ave')
+        ->setAdresseVille('Seshego')
+        ->setAdresseCp(20339)
+        ->setUser($user3);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('Ap 448-6052 Commodo Street')
+        ->setAdresseVille('Arendal')
+        ->setAdresseCp(87106)
+        ->setUser($user4);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('P.O. Box 952, 564 Ornare')
+        ->setAdresseVille('Galway')
+        ->setAdresseCp(13446)
+        ->setUser($user5);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('1181 Integer Ave')
+        ->setAdresseVille('Los Patios')
+        ->setAdresseCp(16372)
+        ->setUser($user6);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('P.O. Box 422, 2880 Ullamcorper Rd')
+        ->setAdresseVille('Burhaniye')
+        ->setAdresseCp(91262)
+        ->setUser($user7);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('137-1063 Ligula Street')
+        ->setAdresseVille('Kahramanmaraş')
+        ->setAdresseCp(63383)
+        ->setUser($user8);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('130-5027 Donec Street')
+        ->setAdresseVille('Chortkiv')
+        ->setAdresseCp(80949)
+        ->setUser($user9);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('1857 Tincidunt Ave')
+        ->setAdresseVille('Seshego')
+        ->setAdresseCp(20339)
+        ->setUser($user10);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('Ap 448-6052 Commodo Street')
+        ->setAdresseVille('Arendal')
+        ->setAdresseCp(87106)
+        ->setUser($user11);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('P.O. Box 952, 564 Ornare')
+        ->setAdresseVille('Galway')
+        ->setAdresseCp(13446)
+        ->setUser($user12);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('1181 Integer Ave')
+        ->setAdresseVille('Los Patios')
+        ->setAdresseCp(16372)
+        ->setUser($user13);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('5156 Inceptos St')
+        ->setAdresseVille('Whangarei')
+        ->setAdresseCp(18758)
+        ->setUser($user14);
+$manager->persist($adresse);
+
+//------------------------------------------------------------- FIN adresses Fixtures--------------------------------------------------------------------------------
+
+
+
+//------------------------------------------------------------- Fournisseur Fixtures--------------------------------------------------------------------------------
+
+$fourni = new Fournisseur();
+$fourni->setFournisNom('Posuere Vulputate Lacus LLP')
+       ->setFournisTel('06 54 36 80 39')
+       ->setFournisEmail('vel.venenatis.vel@google.org')
+       ->setFournisAdresse($adresse)
+       ->setFournisPays($pays);
+$manager->persist($fourni);
+
+$fourni = new Fournisseur();
+$fourni->setFournisNom('AFPA')
+       ->setFournisTel('06 54 36 80 39')
+       ->setFournisEmail('afpa@afpa.fr')
+       ->setFournisAdresse($adresse)
+       ->setFournisPays($pays6);
+$manager->persist($fourni);
+
+//------------------------------------------------------------- FIN Fournisseur Fixtures--------------------------------------------------------------------------------
+
 
 
 //------------------------------------------------------------- Commandes Fixtures--------------------------------------------------------------------------------

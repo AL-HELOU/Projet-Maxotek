@@ -58,11 +58,13 @@ class Adresse
     )]
     private ?string $adresse_cp = null;
 
+
+    #[ORM\ManyToOne(inversedBy: 'user_adresse')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     #[ORM\OneToMany(mappedBy: 'fournis_adresse', targetEntity: Fournisseur::class, orphanRemoval: true)]
     private Collection $fournisseurs;
-
-    #[ORM\OneToMany(mappedBy: 'user_adresse', targetEntity: User::class, orphanRemoval: true)]
-    private Collection $users;
 
     #[ORM\OneToMany(mappedBy: 'com_adresse', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
@@ -73,7 +75,6 @@ class Adresse
     public function __construct()
     {
         $this->fournisseurs = new ArrayCollection();
-        $this->users = new ArrayCollection();
         $this->commandes = new ArrayCollection();
         $this->facturations = new ArrayCollection();
     }
@@ -119,6 +120,19 @@ class Adresse
         return $this;
     }
 
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+
     /**
      * @return Collection<int, Fournisseur>
      */
@@ -143,36 +157,6 @@ class Adresse
             // set the owning side to null (unless already changed)
             if ($fournisseur->getFournisAdresse() === $this) {
                 $fournisseur->setFournisAdresse(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, User>
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): static
-    {
-        if (!$this->users->contains($user)) {
-            $this->users->add($user);
-            $user->setUserAdresse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): static
-    {
-        if ($this->users->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getUserAdresse() === $this) {
-                $user->setUserAdresse(null);
             }
         }
 
@@ -238,4 +222,5 @@ class Adresse
 
         return $this;
     }
+
 }

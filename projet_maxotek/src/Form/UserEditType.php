@@ -28,7 +28,7 @@ class UserEditType extends AbstractType
                 ],
                 'label' => 'Nom :',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 d-flex justify-content-center'
+                    'class' => 'form-label mt-5 d-flex justify-content-center'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(
@@ -101,76 +101,10 @@ class UserEditType extends AbstractType
                         message: 'Cette valeur ne doit pas être vide.',
                     ),
                     new Assert\Regex(
-                        pattern: "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+                        pattern: "/^((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))$/",
                         message: 'Le numéro du téléphone "{{ value }}" n\'est pas un numéro du téléphone valide.',
                     )
                 ]
-            ])
-
-            ->add('user_adress', TextType::class,[
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                'label' => 'Adresse :',
-                'label_attr' => [
-                    'class' => 'form-label mt-4 d-flex justify-content-center'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(
-                        message: 'Cette valeur ne doit pas être vide.',
-                    ),
-                    new Assert\Length(min:5, max:255,
-                        minMessage: 'Votre adresse doit comporter au moins {{ 5 }} caractères',
-                        maxMessage: 'Votre adresse ne peut pas contenir plus de {{ 255 }} caractères',
-                    ),
-                    new Assert\Regex(
-                        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
-                        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
-                    )
-                ]
-            ])
-
-
-            ->add('user_adresseville', TextType::class,[
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                'label' => 'Ville :',
-                'label_attr' => [
-                    'class' => 'form-label mt-4 d-flex justify-content-center'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(
-                        message: 'Cette valeur ne doit pas être vide.',
-                    ),
-                    new Assert\Length(min:5, max:50,
-                        minMessage: 'Le nom de la ville doit comporter au moins {{ 5 }} caractères',
-                        maxMessage: 'Le nom de la ville ne peut pas contenir plus de {{ 50 }} caractères',
-                    ),
-                    new Assert\Regex(
-                        pattern: "/^[a-zA-Z\dàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
-                        message: '-- Format incorrect -- Format accepté : (des lettres ou des nombres ou les caractères spéciaux  (_ - , . \') ).',
-                    )
-                ]
-            ])
-
-            ->add('user_adressecp', TextType::class,[
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                'label' => 'Code postal :',
-                'label_attr' => [
-                    'class' => 'form-label mt-4 d-flex justify-content-center'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(
-                        message: 'Cette valeur ne doit pas être vide.',
-                    ),
-                    new Assert\Regex(
-                        pattern: "/^\d{5}$/",
-                        message: 'La valeur du code postal doit être composée de 5 chiffres.',
-                    )
-                ]    
             ])
 
 
@@ -243,7 +177,7 @@ class UserEditType extends AbstractType
             
             ->add('save', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-success mt-3'
+                    'class' => 'btn btn-success'
                 ],
                 'label' => 'Modifier',
             ]);

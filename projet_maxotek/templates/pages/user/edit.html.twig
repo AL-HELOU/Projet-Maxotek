@@ -7,7 +7,7 @@
 
     <div class="container text-light">
 
-        <h2 class="mt-4 d-flex justify-content-center">Modification d'un utilisateur</h2>
+        <h2 class="mt-5 d-flex justify-content-center">Modification d'un utilisateur</h2>
 
         {# read and display just one flash message type #} 
         {% for message in app.flashes('Succes') %}
@@ -15,6 +15,12 @@
                 {{ message }}
             </div>
         {% endfor %}
+
+        <div class="d-flex justify-content-center mt-5">
+            <a href="{{ path('edituser.password' , {id : userid} )}}" class="btn btn-success">Changer le mot de passe</a>
+            &emsp;&emsp;
+            <a href="{#{{ path('edituser.adresse' , {id : userid} )}}#}" class="btn btn-success">Gérer les adresses</a>
+        </div>
 
         {{ form_start(form) }}
             <div class="form-error">
@@ -53,31 +59,6 @@
                 </div>
             </div>
 
-
-            <div class="form-group">
-                {{ form_label(form.user_adress) }}
-                {{ form_widget(form.user_adress) }}
-                <div class="form-error">
-                    {{ form_errors(form.user_adress) }}
-                </div>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.user_adresseville) }}
-                {{ form_widget(form.user_adresseville) }}
-                <div class="form-error">
-                    {{ form_errors(form.user_adresseville) }}
-                </div>
-            </div>
-
-             <div class="form-group">
-                {{ form_label(form.user_adressecp) }}
-                {{ form_widget(form.user_adressecp) }}
-                <div class="form-error">
-                    {{ form_errors(form.user_adressecp) }}
-                </div>
-            </div>
-
             <div class="form-group">
                 {{ form_label(form.user_sexe) }}
                 {{ form_widget(form.user_sexe) }}
@@ -110,12 +91,9 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-center mt-5"><a href="{{ path('edituser.password' , {id : userid} )}}" class="btn btn-success">Changer le mot de passe</a></div>
-
-
             <div class="form-group d-flex justify-content-center mt-5">
                 {{ form_row(form.save) }}
-                <div class="d-flex justify-content-center mt-3 ms-5 mb-5"><a href="{{ path('user')}}" class="btn btn-secondary">Retour</a></div>
+                <div class="d-flex justify-content-center ms-5 mb-5"><a href="{{ path('user')}}" class="btn btn-secondary">Retour</a></div>
             </div>
 
         {{ form_end(form) }}

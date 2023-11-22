@@ -40,6 +40,7 @@
                             <th scope="col" class="p-3">Suppresion</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         {% for User in Users %}
                             <tr>
@@ -49,7 +50,11 @@
                                 <td>{{ User.Email }}</td>
                                 <td>{{ User.UserSexe }}</td>
                                 <td>{{ User.UserTel }}</td>
-                                <td>{{ User.UserAdresse.Adresse }} / {{ User.UserAdresse.AdresseVille }} / {{ User.UserAdresse.AdresseCp }}</td>
+                                <td>
+                                    {% for adresse in User.UserAdresse %}
+                                        {{ adresse.Adresse }} / {{ adresse.AdresseVille }} / {{ adresse.AdresseCp }}
+                                    {% endfor %} 
+                                </td>
                                 <td>{{ User.UserPays.PaysNom }}</td>
                                 <td>{{ User.UserCommerc.CommercNom}}</td>
                                 <td>{{ User.UserType}}</td>
@@ -67,8 +72,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <br><br><br>
 
             {# display navigation #}
             <div class="navigation d-flex justify-content-center mt-4 mb-4">

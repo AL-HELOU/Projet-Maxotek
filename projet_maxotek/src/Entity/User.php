@@ -93,10 +93,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Adresse $user_adresse = null;
-
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Pays $user_pays = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
@@ -106,9 +102,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'com_user', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Adresse::class, orphanRemoval: true)]
+    private Collection $user_adresse;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
+        $this->user_adresse = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -241,18 +241,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getUserAdresse(): ?Adresse
-    {
-        return $this->user_adresse;
-    }
-
-    public function setUserAdresse(?Adresse $user_adresse): static
-    {
-        $this->user_adresse = $user_adresse;
-
-        return $this;
-    }
-
     public function getUserPays(): ?Pays
     {
         return $this->user_pays;
@@ -301,6 +289,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($commande->getComUser() === $this) {
                 $commande->setComUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Adresse>
+     */
+    public function getUserAdresse(): Collection
+    {
+        return $this->user_adresse;
+    }
+
+    public function addUserAdresse(Adresse $userAdresse): static
+    {
+        if (!$this->user_adresse->contains($userAdresse)) {
+            $this->user_adresse->add($userAdresse);
+            $userAdresse->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserAdresse(Adresse $userAdresse): static
+    {
+        if ($this->user_adresse->removeElement($userAdresse)) {
+            // set the owning side to null (unless already changed)
+            if ($userAdresse->getUser() === $this) {
+                $userAdresse->setUser(null);
             }
         }
 

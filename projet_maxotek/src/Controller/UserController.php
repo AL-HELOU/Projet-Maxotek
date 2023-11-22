@@ -56,15 +56,6 @@ class UserController extends AbstractController
  
             $data = $form->getData();
 
-            $adress = $data["user_adresse"];
-            $adresse->setAdresse($adress);
-
-            $adresseville = $data["user_adresseville"];
-            $adresse->setAdresseVille($adresseville);
-
-            $adressecp = $data["user_adressecp"];
-            $adresse->setAdresseCp($adressecp);
-
             $usernom = $data["user_nom"];
             $user->setUserNom($usernom);
 
@@ -88,13 +79,25 @@ class UserController extends AbstractController
             $usertype = $data["user_type"];
             $user->setUserType($usertype);
 
-            $user->setUserAdresse($adresse);
+            $user->addUserAdresse($adresse);
 
             $userpays = $data["user_pays"];
             $user->setUserPays($userpays);
 
             $usercommerc = $data["user_commerc"];
             $user->setUserCommerc($usercommerc);
+
+            $adress = $data["user_adresse"];
+            $adresse->setAdresse($adress);
+
+            $adresseville = $data["user_adresseville"];
+            $adresse->setAdresseVille($adresseville);
+
+            $adressecp = $data["user_adressecp"];
+            $adresse->setAdresseCp($adressecp);
+            
+            $adresse->setUser($user);
+
 
             $manager->persist($adresse);
             
@@ -118,21 +121,18 @@ class UserController extends AbstractController
     #[Route('/user/edition/{id}', 'user.edit', methods:['GET', 'POST'])]
     public function edit(
         User $user,
-        Adresse $adresse,
         Request $request,
         EntityManagerInterface $manager
     ) : Response
     { 
 
-        $adresse = $user->getUserAdresse();
+        //$adresse = $user->getUserAdresse();
+        
         $form = $this->createForm(UserEditType::class, [
             "user_nom" => $user->getUserNom(),
             "user_prenom" => $user->getUserPrenom(),
             "email" => $user->getEmail(),
             "user_tel" => $user->getUserTel(),
-            "user_adress" => $adresse->getAdresse(),
-            "user_adresseville" => $adresse->getAdresseVille(),
-            "user_adressecp" => $adresse->getAdresseCp(),
             "user_sexe" => $user->getUserSexe(),
             "user_type" => $user->getUserType(),
             "user_pays" => $user->getUserPays(),
@@ -144,15 +144,6 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
  
             $data = $form->getData();
-
-            $adress = $data["user_adress"];
-            $adresse->setAdresse($adress);
-
-            $adresseville = $data["user_adresseville"];
-            $adresse->setAdresseVille($adresseville);
-
-            $adressecp = $data["user_adressecp"];
-            $adresse->setAdresseCp($adressecp);
 
             $usernom = $data["user_nom"];
             $user->setUserNom($usernom);
@@ -174,15 +165,12 @@ class UserController extends AbstractController
             $usertype = $data["user_type"];
             $user->setUserType($usertype);
 
-            $user->setUserAdresse($adresse);
 
             $userpays = $data["user_pays"];
             $user->setUserPays($userpays);
 
             $usercommerc = $data["user_commerc"];
-            $user->setUserCommerc($usercommerc);
-
-            $manager->persist($adresse);
+            $user->setUserCommerc($usercommerc);;
             
             $manager->persist($user);
             $manager->flush();
@@ -201,6 +189,20 @@ class UserController extends AbstractController
         ]);
     }
 
+
+
+   /* #[Route('/user/gereradresses/{id}', 'edituser.adresse', methods:['GET', 'POST'])]
+    public function gereadresses(
+        User $user,
+        Adresse $adresse,
+        Request $request,
+        EntityManagerInterface $manager
+    ) : Response
+    { 
+        $adresses = $user->getUserAdresse();
+
+
+    }*/
 
 
     #[Route('/user/suppression/{id}', 'user.delete', methods: ['GET'])]

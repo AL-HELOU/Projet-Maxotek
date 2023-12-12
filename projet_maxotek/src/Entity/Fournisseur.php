@@ -53,18 +53,18 @@ class Fournisseur
 
     #[ORM\ManyToOne(inversedBy: 'fournisseurs')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Adresse $fournis_adresse = null;
-
-    #[ORM\ManyToOne(inversedBy: 'fournisseurs')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Pays $fournis_pays = null;
 
     #[ORM\OneToMany(mappedBy: 'produit_fournis', targetEntity: Produit::class, orphanRemoval: true)]
     private Collection $produits;
 
+    #[ORM\OneToMany(mappedBy: 'fournisseur', targetEntity: Adresse::class, orphanRemoval: true)]
+    private Collection $fournis_adresse;
+
     public function __construct()
     {
         $this->produits = new ArrayCollection();
+        $this->fournis_adresse = new ArrayCollection();
     }
 
 
@@ -109,19 +109,6 @@ class Fournisseur
         return $this;
     }
 
-
-    public function getFournisAdresse(): ?Adresse
-    {
-        return $this->fournis_adresse;
-    }
-
-    public function setFournisAdresse(?Adresse $fournis_adresse): static
-    {
-        $this->fournis_adresse = $fournis_adresse;
-
-        return $this;
-    }
-
     public function getFournisPays(): ?Pays
     {
         return $this->fournis_pays;
@@ -158,6 +145,36 @@ class Fournisseur
             // set the owning side to null (unless already changed)
             if ($produit->getProduitFournis() === $this) {
                 $produit->setProduitFournis(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Adresse>
+     */
+    public function getFournisAdresse(): Collection
+    {
+        return $this->fournis_adresse;
+    }
+
+    public function addFournisAdresse(Adresse $fournisAdresse): static
+    {
+        if (!$this->fournis_adresse->contains($fournisAdresse)) {
+            $this->fournis_adresse->add($fournisAdresse);
+            $fournisAdresse->setFournisseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFournisAdresse(Adresse $fournisAdresse): static
+    {
+        if ($this->fournis_adresse->removeElement($fournisAdresse)) {
+            // set the owning side to null (unless already changed)
+            if ($fournisAdresse->getFournisseur() === $this) {
+                $fournisAdresse->setFournisseur(null);
             }
         }
 

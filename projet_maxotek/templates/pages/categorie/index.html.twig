@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maxotek-Categories{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-4">
+
+       {% if not Categories.items is same as ([]) %}
+            <h2 class="d-flex justify-content-center text-light">Les Categories</h2>
+
+          {# read and display just one flash message type #} 
+            {% for message in app.flashes('Succes') %}
+                <div class="alert alert-success mt-4 d-flex justify-content-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <div class="count d-flex justify-content-center text-light">
+                Il y a ({{ Categories.getTotalItemCount }}) Categories au total
+            </div>
+        
+
+            <div class="d-flex justify-content-center mt-4"><a href="{{ path('categorie.new')}}" class="btn btn-success">Ajouter une Categorie</a></div>
+
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover mt-4">
+                    <thead class="table-secondary">
+                        <tr class="tableau-tr-th">
+                            <th scope="col" class="p-3">ID</th>
+                            <th scope="col" class="p-3">Libelle</th>
+                            <th scope="col" class="p-3">photo</th>
+                            <th scope="col" class="p-3">Categorie Principale</th>
+                            <th scope="col" class="p-3">Edition</th>
+                            <th scope="col" class="p-3">Suppresion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for Categorie in Categories %}
+                            <tr>
+                                <th scope="row">{{ Categorie.Id }}</th>
+                                <td>{{ Categorie.CategLibelle }}</td>
+                                <td>
+                                    <img  src="data:image/png;base64, {{ Categorie.CategPhoto }}" alt="{{ Categorie.CategLibelle }}">
+                                </td>
+                                <td>{% if Categorie.CategPrincipId %}                
+                                        {{ Categorie.CategPrincipId.CategLibelle }}
+                                    {% endif %}
+                                </td>
+                                    
+                                <td>
+                                    <a href="{#{{ path('administrateur.edit', {id: Administrateur.id}) }}#}" class="btn btn-outline-info">Modifier</a>
+                                </td>
+                               <td>{#
+                                    <form method="GET" action="{{ path('Categorie.delete', {id: Categorie.id}) }}" onsubmit = "return submitformdeletecategorie(this);">
+                                    <button type="submit" class="btn btn-outline-warning">Supprimer</button>
+                                    </form>#}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <br><br><br>
+
+            {# display navigation #}
+            <div class="navigation d-flex justify-content-center mt-4 mb-4">
+                {{ knp_pagination_render(Categories) }}
+            </div>
+        {% else %}  
+            <h4 class = "text-light">Il n'y a pas des Categories !</h4>
+        {% endif %}
+        
+    </div>
+
+{% endblock %}

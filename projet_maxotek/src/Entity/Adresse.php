@@ -60,11 +60,12 @@ class Adresse
 
 
     #[ORM\ManyToOne(inversedBy: 'user_adresse')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'fournis_adresse', targetEntity: Fournisseur::class, orphanRemoval: true)]
-    private Collection $fournisseurs;
+    #[ORM\ManyToOne(inversedBy: 'fournis_adresse')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Fournisseur $fournisseur = null;
 
     #[ORM\OneToMany(mappedBy: 'com_adresse', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
@@ -72,9 +73,9 @@ class Adresse
     #[ORM\OneToMany(mappedBy: 'facture_adresse', targetEntity: Facturation::class, orphanRemoval: true)]
     private Collection $facturations;
 
+
     public function __construct()
     {
-        $this->fournisseurs = new ArrayCollection();
         $this->commandes = new ArrayCollection();
         $this->facturations = new ArrayCollection();
     }
@@ -128,37 +129,6 @@ class Adresse
     public function setUser(?User $user): static
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-
-    /**
-     * @return Collection<int, Fournisseur>
-     */
-    public function getFournisseurs(): Collection
-    {
-        return $this->fournisseurs;
-    }
-
-    public function addFournisseur(Fournisseur $fournisseur): static
-    {
-        if (!$this->fournisseurs->contains($fournisseur)) {
-            $this->fournisseurs->add($fournisseur);
-            $fournisseur->setFournisAdresse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFournisseur(Fournisseur $fournisseur): static
-    {
-        if ($this->fournisseurs->removeElement($fournisseur)) {
-            // set the owning side to null (unless already changed)
-            if ($fournisseur->getFournisAdresse() === $this) {
-                $fournisseur->setFournisAdresse(null);
-            }
-        }
 
         return $this;
     }
@@ -219,6 +189,18 @@ class Adresse
                 $facturation->setFactureAdresse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFournisseur(): ?Fournisseur
+    {
+        return $this->fournisseur;
+    }
+
+    public function setFournisseur(?Fournisseur $fournisseur): static
+    {
+        $this->fournisseur = $fournisseur;
 
         return $this;
     }

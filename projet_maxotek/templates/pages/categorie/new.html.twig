@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un administrateur{% endblock %}
+
+
+{% block body%}
+
+    <div class="container text-light">
+
+        <h2 class="mt-4 d-flex justify-content-center">Ajout d'un administrateur</h2>
+
+        {{ form_start(form) }}
+            <div class="form-error">
+                {{ form_errors(form) }}
+            </div>
+
+             <div class="form-group">
+                {{ form_label(form.categ_libelle) }}
+                {{ form_widget(form.categ_libelle) }}
+                <div class="form-error">
+                    {{ form_errors(form.categ_libelle) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.categ_photo) }}
+                {{ form_widget(form.categ_photo) }}
+                <div class="form-error">
+                    {{ form_errors(form.categ_photo) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.categ_princip) }}
+                {{ form_widget(form.categ_princip) }}
+                <div class="form-error">
+                    {{ form_errors(form.categ_princip) }}
+                </div>
+            </div>
+
+            <div class="form-group d-flex justify-content-center mt-5">
+                {{ form_row(form.save) }}
+                <div class="d-flex justify-content-center mt-3 ms-5 mb-5"><a href="{{ path('categorie')}}" class="btn btn-secondary">Retour</a></div>
+            </div>
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

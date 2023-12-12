@@ -24,8 +24,11 @@ class AdministrateurController extends AbstractController
      * @return Response
      */
     #[Route('/administrateur', name: 'administrateur', methods: ['GET'])]
-    public function index(AdministrateurRepository $repository, PaginatorInterface $paginator, Request $request): Response
-    {
+    public function index(
+        AdministrateurRepository $repository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
 
         $administrateurs = $paginator->paginate(
             $repository->findAll(),

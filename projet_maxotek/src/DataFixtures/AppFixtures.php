@@ -460,6 +460,25 @@ class AppFixtures extends Fixture
 //------------------------------------------------------------- FIN USERS Fixtures--------------------------------------------------------------------------------
 
 
+//------------------------------------------------------------- Fournisseur Fixtures--------------------------------------------------------------------------------
+
+$fourni = new Fournisseur();
+$fourni->setFournisNom('Posuere Vulputate Lacus LLP')
+       ->setFournisTel('06 54 36 80 39')
+       ->setFournisEmail('vel.venenatis.vel@google.org')
+       ->setFournisPays($pays);
+$manager->persist($fourni);
+
+$fourni1 = new Fournisseur();
+$fourni1->setFournisNom('AFPA')
+       ->setFournisTel('06 54 36 80 39')
+       ->setFournisEmail('afpa@afpa.fr')
+       ->setFournisPays($pays6);
+$manager->persist($fourni1);
+
+//------------------------------------------------------------- FIN Fournisseur Fixtures--------------------------------------------------------------------------------
+
+
 //------------------------------------------------------------- adresses Fixtures--------------------------------------------------------------------------------
 
 $adresse = new Adresse();
@@ -567,29 +586,21 @@ $adresse->setAdresse('5156 Inceptos St')
         ->setUser($user14);
 $manager->persist($adresse);
 
+$adresse = new Adresse();
+$adresse->setAdresse('P.O. 952, 564 Oare')
+        ->setAdresseVille('Hawa')
+        ->setAdresseCp(13456)
+        ->setFournisseur($fourni);
+$manager->persist($adresse);
+
+$adresse = new Adresse();
+$adresse->setAdresse('564 Oare')
+        ->setAdresseVille('sasawa')
+        ->setAdresseCp(55456)
+        ->setFournisseur($fourni1);
+$manager->persist($adresse);
+
 //------------------------------------------------------------- FIN adresses Fixtures--------------------------------------------------------------------------------
-
-
-
-//------------------------------------------------------------- Fournisseur Fixtures--------------------------------------------------------------------------------
-
-$fourni = new Fournisseur();
-$fourni->setFournisNom('Posuere Vulputate Lacus LLP')
-       ->setFournisTel('06 54 36 80 39')
-       ->setFournisEmail('vel.venenatis.vel@google.org')
-       ->setFournisAdresse($adresse)
-       ->setFournisPays($pays);
-$manager->persist($fourni);
-
-$fourni = new Fournisseur();
-$fourni->setFournisNom('AFPA')
-       ->setFournisTel('06 54 36 80 39')
-       ->setFournisEmail('afpa@afpa.fr')
-       ->setFournisAdresse($adresse)
-       ->setFournisPays($pays6);
-$manager->persist($fourni);
-
-//------------------------------------------------------------- FIN Fournisseur Fixtures--------------------------------------------------------------------------------
 
 
 
